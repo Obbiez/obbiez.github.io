@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Idle Game</title>
+    <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=menu" />
+</head>
+<body>
+    <header>
+        <div id="container">
+          <h1 id="title">Click to start!</h1> 
+        </div>
+        <!--<button id="menu">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#949494"><path d="M111.87-228.28v-91h736.26v91H111.87Zm0-206.22v-91h736.26v91H111.87Zm0-206.22v-91h736.26v91H111.87Z"/></svg>       
+        </button> -->
+    </header>
+    <div id="upgrades">
+        <h1 class="upgrade-container" id="upgradeTitle">Upgrades!</h1>
+
+        <button class="upgrade-container-1" id="upgrade1"><span id="Strong-Fingers">Strong Fingers</span>price:<span id="price1">11</span><span id="error1"></span></button>
+        
+
+        <div class="buy-amount">
+            <span id="buy">Buy</span>
+            <button class="buy-button" id="buy1"><span id="buy-1">1</span></button>
+            <button class="buy-button" id="buy10"><span id="buy-10">10</span></button>
+            <button class="buy-button" id="buy100"><span id="buy-100">100</span></button>
+            <button class="buy-button" id="buyMax"><span id="buy-max">Max</span></button>
+        </div>
+    </div>
+
+
+    <h2 id="money">0</h2>
+
+    <h3><span id="idle-clicks">0</span> clicks per second</h3>
+
+    <button id="Click-Me"></button>
+
+    <div id="spacerContainer">
+        <div id="spacer"></div>
+    </div>  
+
+
+    <script src="index.js" defer></script>
+</body>
+</html>
