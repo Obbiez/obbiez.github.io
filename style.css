@@ -90,7 +90,7 @@ h1, h2, h3 {
 }
 
 
-.upgrade-container {
+.upgrade-container-1, .upgrade-container-2 {
     border-radius: 20px;
     width: fit-content;
     height: 40px;
@@ -102,51 +102,40 @@ h1, h2, h3 {
     display: flex;
     margin-left: 20px;
     color: #949494;
-}
-.upgrade-container-1 {
-    border-radius: 20px;
-    width: fit-content;
-    height: 40px;
-    border: 1px solid rgba(0, 0, 0, 0.801);
-    background-color: rgba(10, 10, 10, 0.2);
-    border-bottom: 3px solid rgba(0, 0, 0, 0.589);
-    border-right: 2px solid rgba(0, 0, 0, 0.589);
-    justify-content: center;
-    display: flex;
-    margin-left: 20px;
-    color: #949494;
-}
-#upgradeTitle {
-    display: flex;
-    margin-top: 20px;   
-    position: relative;
-    border-bottom: 3px solid rgba(0, 0, 0, 0.589);
-    left: 14%;
-    padding: 10px 30px 10px 30px;   
 }
 #upgrade1 {
     margin-top: 140px;
     position: relative;
-    right: 200px;
+    right: 20px;
     height: 70px;
     padding: 10px 90px 10px 90px;
 }
-#Strong-Fingers {
-    font-size: 18px;
-    
+#upgrade2 {
+    margin-top: 240px;
+    position: relative;
+    right: 330px;
+    height: 70px;
+    padding: 10px 90px 10px 90px;
+}
+
+#Strong-Fingers, #Auto-Clicker {
+    font-size: 18px;    
     color: #949494;
 }
-#upgrade1:active {
+#upgrade1:active, #upgrade2:active {
     border-bottom: 2px solid rgba(0, 0, 0, 0.589);
     border-right: 1px solid rgba(0, 0, 0, 0.589);
     scale: 0.99;
     transition: 0.1s;
 }
-#upgrade1:hover {
-    opacity: 0.8;
+#upgrade1:hover, #upgrade2:hover {
     cursor: pointer;
-    transition: 0.1s;
+    border-bottom: 3px solid rgba(155, 155, 155, 0.589);
+    border-right: 2px solid rgba(155, 155, 155, 0.589);
+    border: 1px solid rgba(155, 155, 155, 0.801);
+    transition: 0.3s;
 }
+
 
 .buy-amount {
     background: none;
@@ -212,6 +201,7 @@ h1, h2, h3 {
     border-left: 1px solid rgba(58, 58, 58, 0.8);
     border-right: 2px solid rgba(58, 58, 58, 0.8);
     transition: 0.1s;
+    font-weight: bold;
 }
 
 
@@ -221,7 +211,7 @@ h1, h2, h3 {
     height: 100%;
     width: 350px;
     display: flex;
-    position: fixed;
+    position: absolute;
     right: 0;
     top: 0;
     border-left: rgba(0, 0, 0, 0.589) solid 3px;
@@ -237,4 +227,9 @@ h1, h2, h3 {
 }
 #upgrades::-webkit-scrollbar-thumb {
     background-color: rgba(192, 192, 192, 0.4);
+}
+
+.broke {
+    opacity: 0.8;
+    color: rgba(167, 0, 0, 0.589);
 }

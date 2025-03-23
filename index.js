@@ -5,9 +5,10 @@ const title = document.getElementById('title');
 const clickPerSecond = document.getElementById('idle-clicks');
 
 const price1 = document.getElementById('price1');
+const price2 = document.getElementById('price2');
 
 const upgrade1 = document.getElementById('upgrade1');
-const error1 = document.getElementById('error1')
+const upgrade2 = document.getElementById('upgrade2')
 
 const buy1 = document.getElementById('buy1');
 const buy10 = document.getElementById('buy10');
@@ -15,17 +16,42 @@ const buy100 = document.getElementById('buy100');
 const buyMax = document.getElementById('buyMax');
 
 let totalUpgrade1 = 1;
-let totalUpgrade2 = 1;
+let totalUpgrade2 = 7;
 
-let price = {
-    1 : 10 + (totalUpgrade1 * totalUpgrade1),
-    2 : 100 + (totalUpgrade2 * totalUpgrade2)
+let tempTotalUpgrade1 = totalUpgrade1;
+let tempTotalUpgrade2 = totalUpgrade2;
+
+function buyAmountPrice() {
+    tempTotalUpgrade1 = totalUpgrade1;
+    tempTotalUpgrade2 = totalUpgrade2;
+    displayPrice[1] = price[1]
+    displayPrice[2] = price[2]
+    for (let i = 1; i < buyAmount; i++) {
+        displayPrice[1] += 10 + Math.pow((totalUpgrade1 + i), 2);
+        displayPrice[2] += 100 + Math.pow((totalUpgrade2 + i), 2);
+    };
+    price1.textContent =  displayPrice[1];
+    price2.textContent =  displayPrice[2];
 }
+function afford() {
+    if (money - (price[1] * buyAmount) < 0) {
+        upgrade1.classList.add('broke');
+    } else {
+        upgrade1.classList.remove('broke');
+    }
+    if (money - (price[2] * buyAmount) < 0) {
+        upgrade2.classList.add('broke');
+    } else {
+        upgrade2.classList.remove('broke');
+    }
+}
+
+
 
 upgrade1.addEventListener('click', () => {
     if (selected[1000]) {
         buyAmount = Math.floor(money / price[1]);
-    }
+    };
     if (money - (price[1] * buyAmount) >= 0) {
         money = money - (price[1] * buyAmount);
         document.getElementById('money').textContent = Number(money.toFixed(2));
@@ -33,18 +59,26 @@ upgrade1.addEventListener('click', () => {
         price[1] = 10 + (totalUpgrade1 * totalUpgrade1);
         price1.textContent = price[1];
         click = click + (0.2 * buyAmount);
-    } else {
-        error1.textContent = 'Not enough money!';
-    }
+    };
+    afford()
 })
 
-
+let price = {
+    1 : 10 + Math.pow(totalUpgrade1, 2),
+    2 : 100 + Math.pow(totalUpgrade2, 2)
+}
+let displayPrice = {
+    1 : 10 + Math.pow(totalUpgrade1, 2),
+    2 : 100 + Math.pow(totalUpgrade2, 2)
+}
 
 
 let buyAmount = 1;
-
 let money = 0.00;
 let click = 1;
+
+let totalClicks = 0;
+let totalMoneyMade = 0;
 
 let selected = {
     1 : false,
@@ -62,7 +96,9 @@ let playedBefore = () => {
 
 
 clickButton.addEventListener('click', () => {
-    money = money + click;
+    totalMoneyMade = totalMoneyMade + click;
+    money += + click;
+    totalClicks += + 1;
     document.getElementById('money').textContent = Number(money.toFixed(2));
     if (!localStorage.getItem(playedBefore)) {
         localStorage.setItem('playedBefore', true);
@@ -71,11 +107,21 @@ clickButton.addEventListener('click', () => {
     if (selected[1000]) {
         if (Math.floor(money / price[1])) {
             buyAmount = Math.floor(money / price[1])
-            price1.textContent = price[1] * buyAmount;
+            buyAmountPrice()
         } else {
             buyAmount = 1;
             price1.textContent = price[1] * buyAmount;
         }
+    }
+    if (money - (price[1] * buyAmount) < 0) {
+        upgrade1.classList.add('broke');
+    } else {
+        upgrade1.classList.remove('broke');
+    }
+    if (money - (price[2] * buyAmount) < 0) {
+        upgrade2.classList.add('broke');
+    } else {
+        upgrade2.classList.remove('broke');
     }
 })
 
@@ -87,6 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (localStorage.getItem('playedBefore')) {
         title.textContent = 'Idle Clicker';
     }
+    afford()
 })
 
 buy1.addEventListener('click', () => {
@@ -100,10 +147,13 @@ buy1.addEventListener('click', () => {
         selected[100] = false;
         selected[1000] = false;
         buyAmount = 1;
+        afford()
         price1.textContent = price[1] * buyAmount;
+        price2.textContent =  price[2] * buyAmount
         console.log(buyAmount);
     }
 })
+
 buy10.addEventListener('click', () => {
     if (!selected[10]) {
         buy1.classList.remove('selected');
@@ -115,10 +165,14 @@ buy10.addEventListener('click', () => {
         selected[100] = false;
         selected[1000] = false;
         buyAmount = 10;
-        price1.textContent =  price[1] * buyAmount
         console.log(buyAmount);
+        buyAmountPrice()
+        afford()
+        price1.textContent =  displayPrice[1] 
+        price2.textContent =  displayPrice[2] 
     }
 })
+
 buy100.addEventListener('click', () => {
     if (!selected[100]) {
         buy1.classList.remove('selected');
@@ -130,10 +184,12 @@ buy100.addEventListener('click', () => {
         selected[100] = true;
         selected[1000] = false;
         buyAmount = 100;
-        price1.textContent =  price[1] * buyAmount
+        buyAmountPrice()
+        afford()
         console.log(buyAmount);
     }
 })
+
 buyMax.addEventListener('click', () => {
     if (!selected[1000]) {
         buy1.classList.remove('selected');
@@ -146,10 +202,12 @@ buyMax.addEventListener('click', () => {
         selected[1000] = true;
         if (Math.floor(money / price[1])) {
             buyAmount = Math.floor(money / price[1])
-            price1.textContent = price[1] * buyAmount;
+            buyAmountPrice()
+            afford()
         } else {
             buyAmount = 1;
             price1.textContent = price[1] * buyAmount;
+            price2.textContent =  price[2] * buyAmount
         }
         console.log(buyAmount);
     }
