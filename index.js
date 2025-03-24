@@ -131,8 +131,8 @@ clickButton.addEventListener('click', () => {
         localStorage.setItem('playedBefore', true);
         title.textContent = 'Idle Clicker';
     }
-    buyMaxUpgrade(price1, 1)
-    buyMaxUpgrade(price2, 2)
+   /* buyMaxUpgrade(price1, 1)
+    buyMaxUpgrade(price2, 2)*/
     afford()
 })
 
