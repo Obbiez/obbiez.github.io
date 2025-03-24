@@ -21,6 +21,37 @@ let totalUpgrade2 = 7;
 let tempTotalUpgrade1 = totalUpgrade1;
 let tempTotalUpgrade2 = totalUpgrade2;
 
+let price = {
+    1 : 10 + Math.pow(totalUpgrade1, 2),
+    2 : 100 + Math.pow(totalUpgrade2, 2)
+}
+let displayPrice = {
+    1 : 10 + Math.pow(totalUpgrade1, 2),
+    2 : 100 + Math.pow(totalUpgrade2, 2)
+}
+
+let buyAmount = 1;
+let money = 0.00;
+let click = 1;
+
+let totalClicks = 0;
+let totalMoneyMade = 0;
+
+let selected = {
+    1 : false,
+    10 : false,
+    100 : false,
+    1000 : false
+};
+
+let playedBefore = () => {
+    if (!localStorage.getItem('playedBefore')) {
+        localStorage.setItem('playedBefore', false)
+    }
+}
+
+
+
 function buyAmountPrice() {
     tempTotalUpgrade1 = totalUpgrade1;
     tempTotalUpgrade2 = totalUpgrade2;
@@ -30,8 +61,8 @@ function buyAmountPrice() {
         displayPrice[1] += 10 + Math.pow((totalUpgrade1 + i), 2);
         displayPrice[2] += 100 + Math.pow((totalUpgrade2 + i), 2);
     };
-    price1.textContent =  displayPrice[1];
-    price2.textContent =  displayPrice[2];
+    price1.textContent =  '$' + displayPrice[1];
+    price2.textContent =  '$' + displayPrice[2];
 }
 function afford() {
     if (money - (price[1] * buyAmount) < 0) {
@@ -57,41 +88,11 @@ upgrade1.addEventListener('click', () => {
         document.getElementById('money').textContent = Number(money.toFixed(2));
         totalUpgrade1 = totalUpgrade1 + buyAmount;
         price[1] = 10 + (totalUpgrade1 * totalUpgrade1);
-        price1.textContent = price[1];
+        price1.textContent = '$' + price[1];
         click = click + (0.2 * buyAmount);
     };
     afford()
-})
-
-let price = {
-    1 : 10 + Math.pow(totalUpgrade1, 2),
-    2 : 100 + Math.pow(totalUpgrade2, 2)
-}
-let displayPrice = {
-    1 : 10 + Math.pow(totalUpgrade1, 2),
-    2 : 100 + Math.pow(totalUpgrade2, 2)
-}
-
-
-let buyAmount = 1;
-let money = 0.00;
-let click = 1;
-
-let totalClicks = 0;
-let totalMoneyMade = 0;
-
-let selected = {
-    1 : false,
-    10 : false,
-    100 : false,
-    1000 : false
 };
-
-let playedBefore = () => {
-    if (!localStorage.getItem('playedBefore')) {
-        localStorage.setItem('playedBefore', false)
-    }
-}
 
 
 
@@ -110,7 +111,7 @@ clickButton.addEventListener('click', () => {
             buyAmountPrice()
         } else {
             buyAmount = 1;
-            price1.textContent = price[1] * buyAmount;
+            price1.textContent = '$' + (price[1] * buyAmount);
         }
     }
     if (money - (price[1] * buyAmount) < 0) {
@@ -148,8 +149,8 @@ buy1.addEventListener('click', () => {
         selected[1000] = false;
         buyAmount = 1;
         afford()
-        price1.textContent = price[1] * buyAmount;
-        price2.textContent =  price[2] * buyAmount
+        price1.textContent = '$' + (price[1] * buyAmount);
+        price2.textContent =  '$' + (price[2] * buyAmount);
         console.log(buyAmount);
     }
 })
@@ -168,8 +169,8 @@ buy10.addEventListener('click', () => {
         console.log(buyAmount);
         buyAmountPrice()
         afford()
-        price1.textContent =  displayPrice[1] 
-        price2.textContent =  displayPrice[2] 
+        price1.textContent =  '$' + displayPrice[1] 
+        price2.textContent =  '$' + displayPrice[2] 
     }
 })
 
@@ -206,8 +207,8 @@ buyMax.addEventListener('click', () => {
             afford()
         } else {
             buyAmount = 1;
-            price1.textContent = price[1] * buyAmount;
-            price2.textContent =  price[2] * buyAmount
+            price1.textContent = '$' + (price[1] * buyAmount);
+            price2.textContent =  '$' + (price[2] * buyAmount);
         }
         console.log(buyAmount);
     }
