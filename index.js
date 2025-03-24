@@ -8,7 +8,7 @@ const price1 = document.getElementById('price1');
 const price2 = document.getElementById('price2');
 
 const upgrade1 = document.getElementById('upgrade1');
-const upgrade2 = document.getElementById('upgrade2')
+const upgrade2 = document.getElementById('upgrade2');
 
 const buy1 = document.getElementById('buy1');
 const buy10 = document.getElementById('buy10');
@@ -33,6 +33,8 @@ let displayPrice = {
 let buyAmount = 1;
 let money = 0.00;
 let click = 1;
+
+let tempBuyAmount = buyAmount;
 
 let totalClicks = 0;
 let totalMoneyMade = 0;
@@ -64,6 +66,19 @@ function buyAmountPrice() {
     price1.textContent =  '$' + displayPrice[1];
     price2.textContent =  '$' + displayPrice[2];
 }
+/* function buyAmountMaxFunction(upgrade, priceVar, tempUpgrade, upgradeVar, basePrice) {
+    tempUpgrade = upgradeVar;
+    let tempPrice = basePrice + Math.pow((tempUpgrade + 1), 2);
+    if (money >= tempPrice) {
+        buyAmount = Math.floor(money / price[upgrade])
+        buyAmountPrice()
+        afford()
+    } else {
+        buyAmount = 1;
+        priceVar.textContent = '$' + (price[upgrade] * buyAmount);
+        afford()
+    }
+} */
 function afford() {
     if (money - (price[1] * buyAmount) < 0) {
         upgrade1.classList.add('broke');
@@ -76,6 +91,17 @@ function afford() {
         upgrade2.classList.remove('broke');
     }
 }
+/* function buyMaxUpgrade(priceVar, upgrade) {
+    if (selected[1000]) {
+        if (Math.floor(money / price[upgrade])) {
+            buyAmount = Math.floor(money / price[upgrade])
+            buyAmountPrice()
+        } else {
+            buyAmount = 1;
+            priceVar.textContent = '$' + (price[upgrade] * buyAmount);
+        }
+    }
+} */
 
 
 
@@ -90,8 +116,8 @@ upgrade1.addEventListener('click', () => {
         price[1] = 10 + (totalUpgrade1 * totalUpgrade1);
         price1.textContent = '$' + price[1];
         click = click + (0.2 * buyAmount);
+        afford()
     };
-    afford()
 })
 
 
@@ -101,29 +127,13 @@ clickButton.addEventListener('click', () => {
     money += + click;
     totalClicks += + 1;
     document.getElementById('money').textContent = Number(money.toFixed(2));
-    if (!localStorage.getItem(playedBefore)) {
+    if (!localStorage.getItem('playedBefore')) {
         localStorage.setItem('playedBefore', true);
         title.textContent = 'Idle Clicker';
     }
-    if (selected[1000]) {
-        if (Math.floor(money / price[1])) {
-            buyAmount = Math.floor(money / price[1])
-            buyAmountPrice()
-        } else {
-            buyAmount = 1;
-            price1.textContent = '$' + (price[1] * buyAmount);
-        }
-    }
-    if (money - (price[1] * buyAmount) < 0) {
-        upgrade1.classList.add('broke');
-    } else {
-        upgrade1.classList.remove('broke');
-    }
-    if (money - (price[2] * buyAmount) < 0) {
-        upgrade2.classList.add('broke');
-    } else {
-        upgrade2.classList.remove('broke');
-    }
+    buyMaxUpgrade(price1, 1)
+    buyMaxUpgrade(price2, 2)
+    afford()
 })
 
 
@@ -131,6 +141,8 @@ document.addEventListener('DOMContentLoaded', () => {
     buy1.classList.add('selected');
     selected[1] = true;
     buyAmount = 1
+    price1.textContent = '$' + displayPrice[1];
+    price2.textContent = '$' + displayPrice[2];
     if (localStorage.getItem('playedBefore')) {
         title.textContent = 'Idle Clicker';
     }
@@ -191,7 +203,7 @@ buy100.addEventListener('click', () => {
     }
 })
 
-buyMax.addEventListener('click', () => {
+/* buyMax.addEventListener('click', () => {
     if (!selected[1000]) {
         buy1.classList.remove('selected');
         buy10.classList.remove('selected');
@@ -201,18 +213,12 @@ buyMax.addEventListener('click', () => {
         selected[10] = false;
         selected[100] = false;
         selected[1000] = true;
-        if (Math.floor(money / price[1])) {
-            buyAmount = Math.floor(money / price[1])
-            buyAmountPrice()
-            afford()
-        } else {
-            buyAmount = 1;
-            price1.textContent = '$' + (price[1] * buyAmount);
-            price2.textContent =  '$' + (price[2] * buyAmount);
-        }
+        buyAmountMaxFunction(price1, 1, tempTotalUpgrade1, totalUpgrade1, 10)
+        buyAmountMaxFunction(price2, 2, tempTotalUpgrade2, totalUpgrade2, 100)
         console.log(buyAmount);
+        afford()
     }
-})
+}) */
 
 
 

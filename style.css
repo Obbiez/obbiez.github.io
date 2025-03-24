@@ -107,14 +107,14 @@ h1, h2, h3 {
     margin-top: 160px;
     position: absolute;
     right: 50px;
-    height: 70px;
+    height: 62px;
     justify-content: center;
 }
 #upgrade2 {
     margin-top: 245px;
     position: absolute;
     right: 50px;
-    height: 70px;
+    height: 62px;
     justify-content: center;
 }
 
@@ -147,7 +147,7 @@ h1, h2, h3 {
 }
 #price1, #price2 {
     position: absolute;
-    margin-top: 45px;
+    margin-top: 39px;
     font-size: larger;
 }
 
