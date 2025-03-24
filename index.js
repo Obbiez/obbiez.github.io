@@ -92,7 +92,7 @@ upgrade1.addEventListener('click', () => {
         click = click + (0.2 * buyAmount);
     };
     afford()
-};
+})
 
 
 
