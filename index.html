@@ -1,51 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Idle Game</title>
-    <link href="style.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=menu" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clicker Game - IT PROJECT</title>
+  <link rel="icon"
+    href="https://play-lh.googleusercontent.com/_fISV_vSkFKhe9VZM0OsMrPIwOEgqfDKNJWfcDJ3rGwe9iA7x5xFszoSBvJkayA1pgc">
+  <link href="upgrade.css" rel="stylesheet">
+  <link href="MainGame.css" rel="stylesheet">
+  <link href="main.css" rel="stylesheet">
+  <link href="LeftSide.css" rel="stylesheet">
 </head>
+
 <body>
-    <header>
-        <div id="container">
-          <h1 id="title">Click to start!</h1> 
-        </div>
-        <!--<button id="menu">
-        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#949494"><path d="M111.87-228.28v-91h736.26v91H111.87Zm0-206.22v-91h736.26v91H111.87Zm0-206.22v-91h736.26v91H111.87Z"/></svg>       
-        </button> -->
-    </header>
+  <script src="index.js" defer></script>
+  <script src="other.js" defer></script>
+  <main>
+
+    <div id="title-container">
+      <h1 id="title"><span id="titleJS">Clicker Game</span></h1>
+    </div>
+
+    <h3 id="click-container">$<span id="moneyDisplay">0</span></h3>
+
+    <div>
+      <button id="button"></button>
+    </div>
+
     <div id="upgrades">
-        <div id="store-title-contain">
-            <h1 id="store-title">Store</h1>
-        </div>
+      <div class="container">
+        <h1 id="upgrade-title">Upgrades</h1>
+      </div>
+      <div class="container upgradeHover">
+        <button class="upgrade-container" id="strongFinger">Strong Fingers<br><span class="bottomLine">price: $<span
+              id="price1">0.00</span></span></button>
+      </div>
+    </div>
 
-        <button class="upgrade-container-1" id="upgrade1"><span id="Strong-Fingers">Strong Fingers:</span><span id="price1">$11</span></button>
-        <button class="upgrade-container-2" id="upgrade2"><span id="Auto-Clicker">Auto-Clicker:</span><span id="price2">$149</span></button>
-        
+    <svg id="menu" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+      fill="#e3e3e3">
+      <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+    </svg>
+    <div class="window ">
+      <button class="setting container-left upgradeHover" id="settingButton">Settings</button>
+      <button class="setting container-left upgradeHover" id="minigameButton">Minigames</button>
+      <button class="setting container-left upgradeHover" id="statButton">Stats</button>
+    </div>
 
-        <div class="buy-amount">
-            <span id="buy"><strong>Buy:</strong></span>
-            <button class="buy-button" id="buy1"><span id="buy-1">1</span></button>
-            <button class="buy-button" id="buy10"><span id="buy-10">10</span></button>
-            <button class="buy-button" id="buy100"><span id="buy-100">100</span></button>
-            <button class="buy-button" id="buyMax"><span id="buy-max">Max</span></button>
-        </div>
+    <div id="LeftSide" class="hide">
+      <div class="container">
+        <h1 id="minigame-title">Minigames</h1>
+      </div>
     </div>
 
 
-    <h2 id="money">0</h2>
-
-    <h3><span id="idle-clicks">0</span> clicks per second</h3>
-
-    <button id="Click-Me"></button>
-
-    <div id="spacerContainer">
-        <div id="spacer"></div>
-    </div>  
+    <div>
+      <div class="spacer"></div>
+    </div>
 
 
-    <script src="index.js" defer></script>
+  </main>
 </body>
+
 </html>

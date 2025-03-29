@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Space+Mono&display=swap');
+:root {
+    --border: rgb(128, 128, 128);
+    --color: rgb(255, 255, 151);
+    --broke-color: rgba(168, 168, 98, 0.623);
+}
+#upgrades {
+    height: 100%;
+    background: linear-gradient(180deg, rgba(75, 75, 75, 0.445), rgba(23, 23, 23, 0.414));
+    width: 350px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-left: 2px solid var(--border);
+}
+.container {
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+    margin: 0 auto;
+    border: 1px solid rgba(162, 162, 162, 0.753);
+    border-radius: 16px;
+    margin-top: 30px;
+    box-shadow: 0px 10px 20px 10px rgba(255, 198, 198, 0.041);
+}
+#upgrade-title {
+    margin: auto;
+    padding: 15px 20px 15px 20px;
+    font-size: 38px;
+}
+.upgrade-container {
+    margin: auto;
+    padding: 15px 50px 20px 50px;
+    font-weight: 400;
+    font-size: 22px;
+    background: none;
+    border: none;
+    color: var(--color);
+}
+.upgrade-container:hover {
+    cursor: pointer;
+}
+.bottomLine {
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+    font-size: 20px;
+    color: var(--color);
+}
+.upgradeHover:hover {
+    cursor: pointer !important;
+    scale: 1.02;
+    transition: 0.1s;
+}
+.upgradeHover {
+    box-shadow: none;
+}
+.broke {
+    text-decoration: line-through;
+    color: var(--broke-color);
+}
