@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Space+Mono&display=swap');
+:root {
+    --border: rgb(128, 128, 128);
+    --color: rgb(255, 255, 151);
+    --broke-color: rgba(168, 168, 98, 0.623);
+    --sub-color: rgb(192, 192, 224);
+}
+#button {
+    background: none;
+    border-top: 2px solid var(--border);
+    border-left: 2px solid var(--border);
+    border-right: 4px solid var(--border);
+    border-bottom: 3px solid var(--border);
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin: 100px auto;
+    display: flex;
+    background-color: rgb(169, 41, 41);
+}
+#button:hover {
+    cursor: pointer;
+    opacity: 0.95;
+    transition: 0.3s;
+}
+#button:active {
+    border-top: 1.5px solid var(--border);
+    border-left: 1.5px solid var(--border);
+    border-right: 3.5px solid var(--border);
+    border-bottom: 2.5px solid var(--border);
+    scale: 0.99;
+    background-color: rgb(130, 31, 31);
+    transition: 0.05s;
+}
+#click-container {
+    display: flex;
+    margin: 30px auto;
+    justify-content: center;
+    padding: 10px;
+    font-size: 30px;
+}
+.spacer {
+    margin-top: 100%;
+}
+#title-container {
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+    margin: 0 auto;
+    border: 1px solid rgba(162, 162, 162, 0.753);
+    border-radius: 16px;
+    margin-top: 30px;
+    box-shadow: 0px 10px 20px 10px rgba(255, 198, 198, 0.065);
+}
+#title {
+    margin: auto;
+    padding: 10px 30px 10px 30px;
+    font-size: 52px;
+}

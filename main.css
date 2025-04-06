@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Space+Mono&display=swap');
+:root {
+    --border: rgb(128, 128, 128);
+    --color: rgb(255, 255, 151);
+    --broke-color: rgba(168, 168, 98, 0.623);
+    --sub-color: rgb(192, 192, 224);
+}
+html, body {
+    padding: 0;
+    margin: 0;
+}
+body {
+    font-family: Roboto;
+    background: linear-gradient(150deg, rgb(20, 20, 20), rgb(50, 50, 50)) no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    color: rgb(255, 255, 151);
+}
+h1, h2, h3, h4, h5, h6 {
+    cursor: default;
+}
+.spacer {
+    height: 100%;
+}
+.hide {
+    display: none !important;
+}
+.broke {
+    color: var(--broke-color);
+    text-decoration: line-through;
+    opacity: 0.9;
+}
