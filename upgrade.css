@@ -1,13 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Space+Mono&display=swap');
 :root {
     --border: rgb(128, 128, 128);
-    --color: rgb(255, 255, 151);
-    --broke-color: rgba(168, 168, 98, 0.623);
+    --color: rgb(212, 212, 126);
     --sub-color: rgb(192, 192, 224);
 }
 #upgrades {
     height: 100%;
-    background: linear-gradient(180deg, rgba(75, 75, 75, 0.445), rgba(23, 23, 23, 0.414));
+    background: linear-gradient(-160deg, #181818, #181818) no-repeat;
     width: 350px;
     position: absolute;
     top: 0;
@@ -22,7 +21,7 @@
     border: 1px solid rgba(162, 162, 162, 0.753);
     border-radius: 16px;
     margin-top: 30px;
-    box-shadow: 0px 10px 20px 10px rgba(255, 198, 198, 0.041);
+    box-shadow: 0px 10px 20px 10px #f9f97107;
 }
 #upgrade-title {
     margin: auto;
@@ -46,7 +45,6 @@
     justify-content: center;
     margin-top: 5px;
     font-size: 20px;
-    color: var(--color);
 }
 .upgradeHover:hover {
     cursor: pointer !important;
@@ -55,8 +53,4 @@
 }
 .upgradeHover {
     box-shadow: none;
-}
-.broke {
-    text-decoration: line-through;
-    color: var(--broke-color);
 }

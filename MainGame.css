@@ -1,8 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Space+Mono&display=swap');
 :root {
     --border: rgb(128, 128, 128);
-    --color: rgb(255, 255, 151);
-    --broke-color: rgba(168, 168, 98, 0.623);
+    --color: rgb(212, 212, 126);
     --sub-color: rgb(192, 192, 224);
 }
 #button {
@@ -14,7 +13,7 @@
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    margin: 100px auto;
+    margin: 150px auto;
     display: flex;
     background-color: rgb(169, 41, 41);
 }
@@ -50,7 +49,7 @@
     border: 1px solid rgba(162, 162, 162, 0.753);
     border-radius: 16px;
     margin-top: 30px;
-    box-shadow: 0px 10px 20px 10px rgba(255, 198, 198, 0.065);
+    box-shadow: 0px 10px 20px 10px #f9f97107;
 }
 #title {
     margin: auto;

@@ -29,15 +29,24 @@ let price = {
     2 : Math.round(buyAmount * 107 * Math.pow(totalUpgrade.upgrade2, 1.2))
 };
 
+function enoughMoney($, price, upgrade) {
+    if ($ <= price) {
+        upgrade.classList.add('broke');
+    } else {
+        upgrade.classList.remove('broke');
+    };
+};
+
 strongFingerUpgrade.addEventListener('click', () => {
     if (money >= price[1]) {
         totalUpgrade.upgrade1 = totalUpgrade.upgrade1 + 1;
         money = money - price[1];
-        click = click + 0.35;
+        click = click + 0.27;
         price[1] = Math.round(buyAmount * 12 * Math.pow(1.4, totalUpgrade.upgrade1))
         displayPrice[1].textContent = price[1];
         moneyDisplay.textContent = Number(money.toFixed(2));
     }
+    enoughMoney(money, price[1], strongFingerUpgrade);
 });
 
 clickButton.addEventListener('click', () => {
@@ -45,11 +54,13 @@ clickButton.addEventListener('click', () => {
     money += + click;
     totalMoney += + click;
     moneyDisplay.textContent = Number(money.toFixed(2));
+    enoughMoney(money, price[1], strongFingerUpgrade);
 });
 
 document.addEventListener('DOMContentLoaded', () => {
     moneyDisplay.textContent = money;
     displayPrice[1].textContent = price[1];
+    enoughMoney(money, price[1], strongFingerUpgrade);
 });
 
 statButton.addEventListener('click', () => {
