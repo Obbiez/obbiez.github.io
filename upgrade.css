@@ -3,6 +3,7 @@
     --border: rgb(128, 128, 128);
     --color: rgb(255, 255, 151);
     --broke-color: rgba(168, 168, 98, 0.623);
+    --sub-color: rgb(192, 192, 224);
 }
 #upgrades {
     height: 100%;

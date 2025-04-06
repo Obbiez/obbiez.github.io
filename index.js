@@ -1,6 +1,9 @@
 const clickButton = document.getElementById('button');
 const moneyDisplay = document.getElementById('moneyDisplay')
 const strongFingerUpgrade = document.getElementById('strongFinger');
+const statButton = document.getElementById('statButton');
+
+
 
 let click = 1;
 let totalClick = 0;
@@ -30,7 +33,7 @@ strongFingerUpgrade.addEventListener('click', () => {
     if (money >= price[1]) {
         totalUpgrade.upgrade1 = totalUpgrade.upgrade1 + 1;
         money = money - price[1];
-        click += + 0.35;
+        click = click + 0.35;
         price[1] = Math.round(buyAmount * 12 * Math.pow(1.4, totalUpgrade.upgrade1))
         displayPrice[1].textContent = price[1];
         moneyDisplay.textContent = Number(money.toFixed(2));
@@ -47,4 +50,9 @@ clickButton.addEventListener('click', () => {
 document.addEventListener('DOMContentLoaded', () => {
     moneyDisplay.textContent = money;
     displayPrice[1].textContent = price[1];
+});
+
+statButton.addEventListener('click', () => {
+    document.getElementById('total-clicks').textContent = totalClick;
+    document.getElementById('total-money').textContent = Number(totalMoney.toFixed(2));
 });

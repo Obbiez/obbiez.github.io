@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Space+Mono&display=swap');
+:root {
+    --border: rgb(128, 128, 128);
+    --color: rgb(255, 255, 151);
+    --broke-color: rgba(168, 168, 98, 0.623);
+    --sub-color: rgb(192, 192, 224);
+}
+#menuTitle {
+    position: fixed;
+    top: 205px;
+    font-size: larger;
+    left: 46.6%;
+    z-index: 3;
+    text-decoration: underline;
+}
+.window {
+    padding: 200px 150px 250px 150px;
+    border: 1px solid var(--border);
+    width: fit-content;
+    height: fit-content;
+    position: fixed;
+    top: 200px;
+    z-index: 2;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 16px;
+    background-color: rgba(66, 66, 66, 0.213);
+    backdrop-filter: blur(2px);
+}
+.setting {
+    padding: 15px 50px 15px 50px;
+    font-weight: 400;
+    font-size: 22px;
+    background: none;
+    border: none;
+    color: var(--color);
+    background-color: rgba(26, 26, 26, 0.613);
+    backdrop-filter: blur(8px);
+    z-index: 2;
+    width: 200px !important;
+}
+#settingButton {
+    top: 300px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    color: rgba(255, 255, 151, 0.709);
+}
+#minigameButton {
+    top: 380px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    color: rgba(255, 255, 151, 0.709);
+
+}
+#statButton {
+    top: 460px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    color: rgba(255, 255, 151, 0.709);
+
+}
+#closeButton {
+    top: 540px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(165, 42, 42, 0.613);
+    color: rgb(188, 188, 188);
+}
+#menu {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    padding: 5px;
+    top: 40px;
+    left: 40px;
+}
+#menu:hover {
+    cursor: pointer;
+    opacity: 0.6;
+    transition: 0.1s;
+}
+#menu:active {
+    transform: scale(1.05);
+}
+.container-left {
+    position: absolute;
+    width: fit-content;
+    height: fit-content;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: 0px 10px 20px 10px rgba(255, 198, 198, 0.041);
+    margin-top: 20px;
+    margin-left: 20px;
+}
+#LeftSide {
+    height: 100%;
+    background: linear-gradient(180deg, rgba(75, 75, 75, 0.445), rgba(23, 23, 23, 0.414));
+    width: 350px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-right: 2px solid var(--border);
+}
+#minigame-title {
+    margin: auto;
+    padding: 15px 20px 15px 20px;
+    font-size: 38px;
+}
+#stat {
+    position: absolute;
+    left: 40%;
+    top: 35%;
+    z-index: 5;
+}
