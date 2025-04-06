@@ -20,8 +20,8 @@
     border: none;
     color: var(--color);
     background-color: rgba(26, 26, 26, 0.613);
-    backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
     z-index: 2;
 }
 #settingButton {
