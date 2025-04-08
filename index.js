@@ -1,8 +1,10 @@
 const clickButton = document.getElementById('button');
 const moneyDisplay = document.getElementById('moneyDisplay')
 const strongFingerUpgrade = document.getElementById('strongFinger');
+const autoClickerUpgrade = document.getElementById('autoClicker');
 const statButton = document.getElementById('statButton');
-
+const clicksPerSecond = document.getElementById('clicksPerSecond');
+const menuScreen = document.getElementById('menuTitle');
 
 
 let click = 1;
@@ -10,6 +12,7 @@ let totalClick = 0;
 let money = 0;
 let totalMoney = 0;
 let buyAmount = 1;
+let autoClicker = 0;
 
 let totalUpgrade = {
     upgrade1 : 1,
@@ -26,7 +29,7 @@ let displayPrice = {
 
 let price = {
     1 : Math.round(buyAmount * 12 * Math.pow(1.4, totalUpgrade.upgrade1)),
-    2 : Math.round(buyAmount * 107 * Math.pow(totalUpgrade.upgrade2, 1.2))
+    2 : Math.round(buyAmount * 47 * Math.pow(1.41, totalUpgrade.upgrade2)),
 };
 
 function enoughMoney($, price, upgrade) {
@@ -36,6 +39,27 @@ function enoughMoney($, price, upgrade) {
         upgrade.classList.remove('broke');
     };
 };
+
+autoClickerUpgrade.addEventListener('click', () => {
+    if (money >= price[2]) {
+        totalUpgrade.upgrade2 = totalUpgrade.upgrade2 + 1;
+        money = money - price[2];
+        autoClicker = autoClicker + 1;
+        price[2] = Math.round(buyAmount * 107 * Math.pow(1.4, totalUpgrade.upgrade2))
+        displayPrice[2].textContent = price[2];
+        moneyDisplay.textContent = Number(money.toFixed(2));
+        clicksPerSecond.textContent = autoClicker * 0.5;
+    }
+    enoughMoney(money, price[2], autoClickerUpgrade);
+})
+
+setInterval(() => {
+    if (autoClicker > 0 && menuScreen.classList.contains('hide')) {
+        money = money + (autoClicker * 0.5);
+        totalMoney = totalMoney + (autoClicker * 0.47);
+        moneyDisplay.textContent = Number(money.toFixed(2));
+    }
+}, 1100)
 
 strongFingerUpgrade.addEventListener('click', () => {
     if (money >= price[1]) {
@@ -49,18 +73,22 @@ strongFingerUpgrade.addEventListener('click', () => {
     enoughMoney(money, price[1], strongFingerUpgrade);
 });
 
+
 clickButton.addEventListener('click', () => {
     totalClick += + 1;
     money += + click;
     totalMoney += + click;
     moneyDisplay.textContent = Number(money.toFixed(2));
     enoughMoney(money, price[1], strongFingerUpgrade);
+    enoughMoney(money, price[2], autoClickerUpgrade);
 });
 
 document.addEventListener('DOMContentLoaded', () => {
     moneyDisplay.textContent = money;
     displayPrice[1].textContent = price[1];
+    displayPrice[2].textContent = price[2];
     enoughMoney(money, price[1], strongFingerUpgrade);
+    enoughMoney(money, price[2], autoClickerUpgrade);
 });
 
 statButton.addEventListener('click', () => {
