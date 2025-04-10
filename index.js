@@ -2,6 +2,7 @@ const clickButton = document.getElementById('button');
 const moneyDisplay = document.getElementById('moneyDisplay')
 const strongFingerUpgrade = document.getElementById('strongFinger');
 const autoClickerUpgrade = document.getElementById('autoClicker');
+const robotArmUpgrade = document.getElementById('robotArm');
 const statButton = document.getElementById('statButton');
 const clicksPerSecond = document.getElementById('clicksPerSecond');
 const menuScreen = document.getElementById('menuTitle');
@@ -13,6 +14,7 @@ let money = 0;
 let totalMoney = 0;
 let buyAmount = 1;
 let autoClicker = 0;
+let robotArm = 0;
 let totalMoneySpent = 0;
 let playTime = 0;
 
@@ -26,12 +28,18 @@ let totalUpgrade = {
 
 let displayPrice = {
     1 : document.getElementById('price1'),
-    2 : document.getElementById('price2')
+    2 : document.getElementById('price2'),
+    3 : document.getElementById('price3'),
+    4 : document.getElementById('price4'),
+    5 : document.getElementById('price5'),
 };
 
 let price = {
     1 : Math.round(buyAmount * (12 * Math.pow(1.3, totalUpgrade.upgrade1))),
     2 : Math.round(buyAmount * (67 * Math.pow(1.25, totalUpgrade.upgrade2))),
+    3 : Math.round(buyAmount * (191 * Math.pow(1.2, totalUpgrade.upgrade2))),
+    4 : Math.round(buyAmount * (460 * Math.pow(1.15, totalUpgrade.upgrade2))),
+    5 : Math.round(buyAmount * (1271 * Math.pow(1.1, totalUpgrade.upgrade2))),
 };
 
 function enoughMoney($, price, upgrade) {
@@ -60,21 +68,43 @@ autoClickerUpgrade.addEventListener('click', () => {
     if (money >= price[2]) {
         totalUpgrade.upgrade2 = totalUpgrade.upgrade2 + 1;
         money = money - price[2];
-        totalMoneySpent = totalMoneySpent + 12 * Math.pow(1.3, (totalUpgrade.upgrade2 - 1));
+        totalMoneySpent = totalMoneySpent + 12 * Math.pow(1.25, (totalUpgrade.upgrade2 - 1));
         autoClicker = autoClicker + 1;
         price[2] = Math.round(buyAmount * 107 * Math.pow(1.4, totalUpgrade.upgrade2))
         displayPrice[2].textContent = price[2];
         moneyDisplay.textContent = Number(money.toFixed(2));
-        clicksPerSecond.textContent = autoClicker * 0.75;
-        enoughMoney(money, price[2], autoClickerUpgrade);
+        clicksPerSecond.textContent = Number(((robotArm * 3.5) * Math.pow(1.04, totalUpgrade.upgrade3)) + ((autoClicker * 0.75) * Math.pow(1.04, totalUpgrade.upgrade2))).toFixed(2);
         enoughMoney(money, price[1], strongFingerUpgrade);
+        enoughMoney(money, price[2], autoClickerUpgrade);
+        enoughMoney(money, price[3], robotArmUpgrade);
+    }
+})
+
+robotArmUpgrade.addEventListener('click', () => {
+    if (money >= price[3]) {
+        totalUpgrade.upgrade3 = totalUpgrade.upgrade3 + 1;
+        money = money - price[3];
+        totalMoneySpent = buyAmount * (191 * Math.pow(1.2, totalUpgrade.upgrade3 - 1));
+        robotArm = robotArm + 1;
+        price[3] = Math.round(buyAmount * 191 * Math.pow(1.2, totalUpgrade.upgrade3))
+        displayPrice[3].textContent = price[3];
+        moneyDisplay.textContent = Number(money.toFixed(2));
+        clicksPerSecond.textContent = Number(((robotArm * 3.5) * Math.pow(1.02, totalUpgrade.upgrade3)) + ((autoClicker * 0.75) * Math.pow(1.02, totalUpgrade.upgrade2))).toFixed(2);
+        enoughMoney(money, price[1], strongFingerUpgrade);
+        enoughMoney(money, price[2], autoClickerUpgrade);
+        enoughMoney(money, price[3], robotArmUpgrade);
     }
 })
 
 setInterval(() => {
     if (autoClicker > 0 && menuScreen.classList.contains('hide')) {
-        money = money + (autoClicker * 0.75);
+        money = money + ((autoClicker * 0.75) * Math.pow(1.02, totalUpgrade.upgrade2));
         totalMoney = totalMoney + (autoClicker * 0.75);
+        moneyDisplay.textContent = Number(money.toFixed(2));
+    }
+    if (robotArm > 0 && menuScreen.classList.contains('hide')) {
+        money = money + ((robotArm * 3.5) * Math.pow(1.02, totalUpgrade.upgrade3));
+        totalMoney = totalMoney + (robotArm * 3.5);
         moneyDisplay.textContent = Number(money.toFixed(2));
     }
 }, 900)
@@ -83,13 +113,14 @@ strongFingerUpgrade.addEventListener('click', () => {
     if (money >= price[1]) {
         totalUpgrade.upgrade1 = totalUpgrade.upgrade1 + 1;
         money = money - price[1];
-        click = click + 0.27;
-        price[1] = Math.round(buyAmount * 12 * Math.pow(1.4, totalUpgrade.upgrade1))
+        click = click + (0.27 * Math.pow(1.02, totalUpgrade.upgrade1));
+        price[1] = Math.round(buyAmount * 12 * Math.pow(1.3, totalUpgrade.upgrade1))
         displayPrice[1].textContent = price[1];
         moneyDisplay.textContent = Number(money.toFixed(2));
         totalMoneySpent = totalMoneySpent + 12 * Math.pow(1.3, (totalUpgrade.upgrade1 - 1));
-        enoughMoney(money, price[2], autoClickerUpgrade);
         enoughMoney(money, price[1], strongFingerUpgrade);
+        enoughMoney(money, price[2], autoClickerUpgrade);
+        enoughMoney(money, price[3], robotArmUpgrade);
     }
 });
 
@@ -101,14 +132,18 @@ clickButton.addEventListener('click', () => {
     moneyDisplay.textContent = Number(money.toFixed(2));
     enoughMoney(money, price[1], strongFingerUpgrade);
     enoughMoney(money, price[2], autoClickerUpgrade);
+    enoughMoney(money, price[3], robotArmUpgrade);
+    if (click > 50 || money > 300);
 });
 
 document.addEventListener('DOMContentLoaded', () => {
     moneyDisplay.textContent = money;
     displayPrice[1].textContent = price[1];
     displayPrice[2].textContent = price[2];
+    displayPrice[3].textContent = price[3];
     enoughMoney(money, price[1], strongFingerUpgrade);
     enoughMoney(money, price[2], autoClickerUpgrade);
+    enoughMoney(money, price[3], robotArmUpgrade);
     playTimeStart = Date.now();
 });
 
