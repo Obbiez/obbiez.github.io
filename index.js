@@ -6,7 +6,6 @@ const robotArmUpgrade = document.getElementById('robotArm');
 const statButton = document.getElementById('statButton');
 const clicksPerSecond = document.getElementById('clicksPerSecond');
 const menuScreen = document.getElementById('menuTitle');
-const robotArmText = document.getElementById('robotArmText');
 
 let click = 1;
 let totalClick = 0;
@@ -72,7 +71,7 @@ function playTimeUnit() {
 
 function discovery(clicks, moneyAmount, uText, uUpgrade, uTitle, bottomLine, price, div, notDiscoveredText) {
     if (totalClick >= clicks || money > moneyAmount) {
-        uText.classList.remove('hide');
+        document.getElementById(uText).classList.remove('hide');
         uUpgrade.classList.remove('broke');
         uUpgrade.classList.remove('notDiscovered');
         document.getElementById(uTitle).classList.remove('hide');
@@ -149,7 +148,8 @@ clickButton.addEventListener('click', () => {
     money += + click;
     totalMoney += + click;
     moneyDisplay.textContent = Number(money.toFixed(2));
-    discovery(75, 300, robotArmText, robotArmUpgrade, 'u3Title', 'bL3', 'price3', 'u3div', 'robotArmText');
+    discovery(25, 50, 'autoClickerText', autoClickerUpgrade, 'u2Title', 'bL2', 'price2', 'u2div', 'autoClickerText');
+    discovery(75, 300, 'robotArmText', robotArmUpgrade, 'u3Title', 'bL3', 'price3', 'u3div', 'robotArmText');
     enoughMoney(money, price[1], strongFingerUpgrade, 'u1div');
     enoughMoney(money, price[2], autoClickerUpgrade, 'u2div');
     enoughMoney(money, price[3], robotArmUpgrade, 'u3div');
