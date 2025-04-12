@@ -36,3 +36,13 @@ h1, h2, h3, h4, h5, h6 {
 #space {
     color: #131313;
 }
+.notDiscovered {
+    color: black !important;
+    cursor: default !important;
+}
+.notDiscoveredDiv {
+    background-color: rgba(12, 12, 12, 0.911);
+}
+.notDiscoveredText {
+    color: rgb(180, 180, 180);
+}

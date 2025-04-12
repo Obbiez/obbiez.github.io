@@ -6,7 +6,7 @@ const robotArmUpgrade = document.getElementById('robotArm');
 const statButton = document.getElementById('statButton');
 const clicksPerSecond = document.getElementById('clicksPerSecond');
 const menuScreen = document.getElementById('menuTitle');
-
+const robotArmText = document.getElementById('robotArmText');
 
 let click = 1;
 let totalClick = 0;
@@ -42,11 +42,17 @@ let price = {
     5 : Math.round(buyAmount * (1271 * Math.pow(1.1, totalUpgrade.upgrade2))),
 };
 
-function enoughMoney($, price, upgrade) {
-    if ($ <= price) {
-        upgrade.classList.add('broke');
+function enoughMoney($, price, upgrade, u) {
+    if ($ < price) {
+        if (!upgrade.classList.contains('notDiscovered')) {
+            upgrade.classList.add('broke');
+            document.getElementById(u).classList.remove('upgradeHover');
+        } else if (upgrade.classList.contains('notDiscovered')) {
+            document.getElementById(u).classList.remove('upgradeHover');
+        }
     } else {
         upgrade.classList.remove('broke');
+        document.getElementById(u).classList.add('upgradeHover');
     };
 };
 
@@ -64,6 +70,19 @@ function playTimeUnit() {
     }
 };
 
+function discovery(clicks, moneyAmount, uText, uUpgrade, uTitle, bottomLine, price, div, notDiscoveredText) {
+    if (totalClick >= clicks || money > moneyAmount) {
+        uText.classList.remove('hide');
+        uUpgrade.classList.remove('broke');
+        uUpgrade.classList.remove('notDiscovered');
+        document.getElementById(uTitle).classList.remove('hide');
+        document.getElementById(bottomLine).classList.remove('hide');
+        document.getElementById(price).classList.remove('hide');
+        document.getElementById(div).classList.remove('notDiscoveredDiv');
+        document.getElementById(notDiscoveredText).classList.add('hide');
+    }
+}
+
 autoClickerUpgrade.addEventListener('click', () => {
     if (money >= price[2]) {
         totalUpgrade.upgrade2 = totalUpgrade.upgrade2 + 1;
@@ -74,9 +93,9 @@ autoClickerUpgrade.addEventListener('click', () => {
         displayPrice[2].textContent = price[2];
         moneyDisplay.textContent = Number(money.toFixed(2));
         clicksPerSecond.textContent = Number(((robotArm * 3.5) * Math.pow(1.04, totalUpgrade.upgrade3)) + ((autoClicker * 0.75) * Math.pow(1.04, totalUpgrade.upgrade2))).toFixed(2);
-        enoughMoney(money, price[1], strongFingerUpgrade);
-        enoughMoney(money, price[2], autoClickerUpgrade);
-        enoughMoney(money, price[3], robotArmUpgrade);
+        enoughMoney(money, price[1], strongFingerUpgrade, 'u1div');
+        enoughMoney(money, price[2], autoClickerUpgrade, 'u2div');
+        enoughMoney(money, price[3], robotArmUpgrade, 'u3div');
     }
 })
 
@@ -90,9 +109,9 @@ robotArmUpgrade.addEventListener('click', () => {
         displayPrice[3].textContent = price[3];
         moneyDisplay.textContent = Number(money.toFixed(2));
         clicksPerSecond.textContent = Number(((robotArm * 3.5) * Math.pow(1.02, totalUpgrade.upgrade3)) + ((autoClicker * 0.75) * Math.pow(1.02, totalUpgrade.upgrade2))).toFixed(2);
-        enoughMoney(money, price[1], strongFingerUpgrade);
-        enoughMoney(money, price[2], autoClickerUpgrade);
-        enoughMoney(money, price[3], robotArmUpgrade);
+        enoughMoney(money, price[1], strongFingerUpgrade, 'u1div');
+        enoughMoney(money, price[2], autoClickerUpgrade, 'u2div');
+        enoughMoney(money, price[3], robotArmUpgrade, 'u3div');
     }
 })
 
@@ -118,9 +137,9 @@ strongFingerUpgrade.addEventListener('click', () => {
         displayPrice[1].textContent = price[1];
         moneyDisplay.textContent = Number(money.toFixed(2));
         totalMoneySpent = totalMoneySpent + 12 * Math.pow(1.3, (totalUpgrade.upgrade1 - 1));
-        enoughMoney(money, price[1], strongFingerUpgrade);
-        enoughMoney(money, price[2], autoClickerUpgrade);
-        enoughMoney(money, price[3], robotArmUpgrade);
+        enoughMoney(money, price[1], strongFingerUpgrade, 'u1div');
+        enoughMoney(money, price[2], autoClickerUpgrade, 'u2div');
+        enoughMoney(money, price[3], robotArmUpgrade, 'u3div');
     }
 });
 
@@ -130,10 +149,10 @@ clickButton.addEventListener('click', () => {
     money += + click;
     totalMoney += + click;
     moneyDisplay.textContent = Number(money.toFixed(2));
-    enoughMoney(money, price[1], strongFingerUpgrade);
-    enoughMoney(money, price[2], autoClickerUpgrade);
-    enoughMoney(money, price[3], robotArmUpgrade);
-    if (click > 50 || money > 300);
+    discovery(75, 300, robotArmText, robotArmUpgrade, 'u3Title', 'bL3', 'price3', 'u3div', 'robotArmText');
+    enoughMoney(money, price[1], strongFingerUpgrade, 'u1div');
+    enoughMoney(money, price[2], autoClickerUpgrade, 'u2div');
+    enoughMoney(money, price[3], robotArmUpgrade, 'u3div');
 });
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -141,9 +160,9 @@ document.addEventListener('DOMContentLoaded', () => {
     displayPrice[1].textContent = price[1];
     displayPrice[2].textContent = price[2];
     displayPrice[3].textContent = price[3];
-    enoughMoney(money, price[1], strongFingerUpgrade);
-    enoughMoney(money, price[2], autoClickerUpgrade);
-    enoughMoney(money, price[3], robotArmUpgrade);
+    enoughMoney(money, price[1], strongFingerUpgrade, 'u1div');
+    enoughMoney(money, price[2], autoClickerUpgrade, 'u2div');
+    enoughMoney(money, price[3], robotArmUpgrade, 'u3div');
     playTimeStart = Date.now();
 });
 
