@@ -35,7 +35,7 @@ let displayPrice = {
 
 let price = {
     1 : Math.round(buyAmount * (12 * Math.pow(1.3, totalUpgrade.upgrade1))),
-    2 : Math.round(buyAmount * (67 * Math.pow(1.25, totalUpgrade.upgrade2))),
+    2 : Math.round(buyAmount * (57 * Math.pow(1.25, totalUpgrade.upgrade2))),
     3 : Math.round(buyAmount * (191 * Math.pow(1.2, totalUpgrade.upgrade2))),
     4 : Math.round(buyAmount * (460 * Math.pow(1.15, totalUpgrade.upgrade2))),
     5 : Math.round(buyAmount * (1271 * Math.pow(1.1, totalUpgrade.upgrade2))),
@@ -88,7 +88,7 @@ autoClickerUpgrade.addEventListener('click', () => {
         money = money - price[2];
         totalMoneySpent = totalMoneySpent + 12 * Math.pow(1.25, (totalUpgrade.upgrade2 - 1));
         autoClicker = autoClicker + 1;
-        price[2] = Math.round(buyAmount * 107 * Math.pow(1.4, totalUpgrade.upgrade2))
+        price[2] = Math.round(buyAmount * 57 * Math.pow(1.4, totalUpgrade.upgrade2))
         displayPrice[2].textContent = price[2];
         moneyDisplay.textContent = Number(money.toFixed(2));
         clicksPerSecond.textContent = Number(((robotArm * 3.5) * Math.pow(1.04, totalUpgrade.upgrade3)) + ((autoClicker * 0.75) * Math.pow(1.04, totalUpgrade.upgrade2))).toFixed(2);
@@ -107,7 +107,7 @@ robotArmUpgrade.addEventListener('click', () => {
         price[3] = Math.round(buyAmount * 191 * Math.pow(1.2, totalUpgrade.upgrade3))
         displayPrice[3].textContent = price[3];
         moneyDisplay.textContent = Number(money.toFixed(2));
-        clicksPerSecond.textContent = Number(((robotArm * 3.5) * Math.pow(1.02, totalUpgrade.upgrade3)) + ((autoClicker * 0.75) * Math.pow(1.02, totalUpgrade.upgrade2))).toFixed(2);
+        clicksPerSecond.textContent = Number((robotArm * 3.5) + (autoClicker * 0.75)).toFixed(2);
         enoughMoney(money, price[1], strongFingerUpgrade, 'u1div');
         enoughMoney(money, price[2], autoClickerUpgrade, 'u2div');
         enoughMoney(money, price[3], robotArmUpgrade, 'u3div');
@@ -116,13 +116,13 @@ robotArmUpgrade.addEventListener('click', () => {
 
 setInterval(() => {
     if (autoClicker > 0 && menuScreen.classList.contains('hide')) {
-        money = money + ((autoClicker * 0.75) * Math.pow(1.02, totalUpgrade.upgrade2));
-        totalMoney = totalMoney + (autoClicker * 0.75);
+        money = money + autoClicker * 0.75;
+        totalMoney = totalMoney + autoClicker * 0.75;
         moneyDisplay.textContent = Number(money.toFixed(2));
     }
     if (robotArm > 0 && menuScreen.classList.contains('hide')) {
-        money = money + ((robotArm * 3.5) * Math.pow(1.02, totalUpgrade.upgrade3));
-        totalMoney = totalMoney + (robotArm * 3.5);
+        money = money + robotArm * 3.5;
+        totalMoney = totalMoney + robotArm * 3.5;
         moneyDisplay.textContent = Number(money.toFixed(2));
     }
 }, 900)
