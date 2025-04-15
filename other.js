@@ -1,7 +1,7 @@
 const menu = document.getElementById('menu');
 const settingWindow = document.querySelector('.window');
 const statsButton = document.getElementById('statButton');
-const stats = document.getElementById('stat');
+const stat = document.getElementById('stat');
 const statsContainer = document.getElementById('statContainer');
 const minigameButton = document.getElementById('minigameButton');
 const settingButton = document.getElementById('settingButton');
@@ -29,7 +29,7 @@ statsButton.addEventListener('click', () => {
     minigameButton.classList.add('hide');
     settingButton.classList.add('hide');
     titleH1.textContent = 'Stats';
-    stats.classList.remove('hide');
+    stat.classList.remove('hide');
     statsContainer.classList.remove('hide');
     closeButton.textContent = 'Back';
     currentScreen = 'Stats';
@@ -48,7 +48,7 @@ function updateCloseButtonListener() {
             closeButton.classList.add('hide');
             settingWindow.classList.add('hide');
             titleH1.classList.add('hide');
-            stats.classList.add('hide');
+            stat.classList.add('hide');
             menu.classList.remove('hide');
             statsContainer.classList.add('hide');
             currentScreen = 'Menu';
@@ -60,7 +60,7 @@ function updateCloseButtonListener() {
             closeButton.classList.remove('hide');
             settingWindow.classList.remove('hide');
             titleH1.classList.remove('hide');
-            stats.classList.add('hide');
+            stat.classList.add('hide');
             statsContainer.classList.add('hide');
             titleH1.textContent = 'Menu';
             closeButton.textContent = 'Close';
