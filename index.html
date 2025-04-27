@@ -16,7 +16,7 @@
 
   <body>
     <script src="index.js" defer></script>
-    <script src="other.js" defer></script>
+    <script src="menu.js" defer></script>
     <main>
       <div id="title-container">
         <h1 id="title"><span id="titleJS">Clicker Game</span></h1>
@@ -91,6 +91,14 @@
       </div>
 
       <div class="window hide"></div>
+
+      <div id="settingContainer" class="hide">
+        <form id="setting">
+          <label id="websiteTitle">Website Title</label>
+          <input type="text" for="websiteTitle" title="websiteTitle">
+          <button type="submit" name="websiteTitleSubmitButton" id="titleButton">Apply</button>
+        </form>
+      </div>
       
       <div id="statContainer" class="hide">
         <p class="hide" id="stat">
