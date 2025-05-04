@@ -149,3 +149,26 @@
     z-index: 5;
     padding: 5px;
 }
+#titleButton {
+    font-size: 14px;
+    border: 1px solid var(--border);
+    width: 40px;
+    height: 25px;
+    display: flex;
+    margin: auto;
+    padding-left: 4px;
+    align-items: center;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+#titleButton:hover {
+    cursor: pointer;
+    scale: 1.08;
+    opacity: 0.7;
+    transition: 0.1s;
+}
+#websiteTitleValue {
+    background-color: rgba(206, 206, 206, 0.767);
+    border: var(--border);
+    border-radius: 5px;
+}

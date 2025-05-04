@@ -98,4 +98,21 @@ function updateCloseButtonListener() {
     });
 }
 
+let websiteTitle = localStorage.getItem('websiteTitle');
+if (!websiteTitle) {
+    localStorage.setItem('websiteTitle', 'Clicker Game');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('page-title').textContent = websiteTitle;
+})
+
+
+document.getElementById('titleButton').addEventListener('click', () => {
+    const newTitle = document.getElementById('websiteTitleValue').value;
+    localStorage.setItem('websiteTitle', newTitle);
+    websiteTitle = newTitle;
+    document.getElementById('page-title').textContent = websiteTitle;
+})
+
 updateCloseButtonListener();
