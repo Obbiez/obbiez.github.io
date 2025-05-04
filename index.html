@@ -12,11 +12,13 @@
     <link href="css/MainGame.css" rel="stylesheet" />
     <link href="css/main.css" rel="stylesheet" />
     <link href="css/menu.css" rel="stylesheet" />
+    <link href="css/minigame.css" rel="stylesheet" />
   </head>
 
   <body>
     <script src="js/index.js" defer></script>
     <script src="js/menu.js" defer></script>
+    <script src="js/minigames.js" defer></script>
     <main>
       <div id="title-container">
         <h1 id="title"><span id="titleJS">Clicker Game</span></h1>
@@ -79,7 +81,7 @@
         height="32px"
         viewBox="0 -960 960 960"
         width="32px"
-        fill="#e3e3e3"
+        fill="#B7B7B7"
       >
         <path
           d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"
@@ -119,7 +121,7 @@
         class="setting container-left upgradeHover hide"
         id="minigameButton"
       >
-        Minigames
+        W.I.P
       </button>
       <button class="setting container-left upgradeHover hide" id="statButton">
         Stats
@@ -127,6 +129,24 @@
       <button class="setting container-left upgradeHover hide" id="closeButton">
         Close
       </button>
+      
+      <div id="minigameMenu" class="hide minigameMenuButton">
+        <div id="minigameTitleDiv">
+          <h1 id="minigameTitle">
+            Minigames
+          </h1>
+        </div>
+        
+      </div>
+
+      <div id="minigameMenuButton" class="minigameMenuButton">
+        <svg xmlns="http://www.w3.org/2000/svg"
+         height="24px" viewBox="0 -960 960 960"
+          width="24px" fill="#B7B7B7"
+          id="minigameMenuButtonSVG">
+          <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z"/>
+        </svg>
+      </div>
 
       <div>
         <div class="spacer"></div>
