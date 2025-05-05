@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Space+Mono&display=swap');
+:root {
+    --border: rgb(128, 128, 128);
+    --color: rgb(212, 212, 126);
+    --sub-color: rgb(192, 192, 224);
+}
+#headTailsDiv {
+    width: 320px;
+    height: 350px;
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    margin: 20px auto;
+}
+#headTailsImg {
+    width: 320px;
+    height: 230px;
+    border-bottom: 1px solid var(--border);
+    opacity: 0.75;
+    border-radius: 15px 15px 0 0;
+}
+.coin {
+    width: 70px;
+    height: 30px;
+    border-radius: 9px;
+    align-content: center;
+    text-align: center;
+    padding: 3px;
+    border: 1px solid var(--border);
+    box-shadow: 0px 0px 10px 0px rgba(214, 214, 115, 0.35);
+    margin: 12px;
+}
+.coin:hover {
+    opacity: 0.6;
+    box-shadow: 0px 0px 8px 0px rgba(214, 214, 115, 0.25);
+    transition: 0.1s;
+    cursor: pointer;
+}
+#betAmount {
+    background-color: rgba(206, 206, 206, 0.767);
+    border: 2px solid rgba(182, 119, 38, 0.603);
+    border-radius: 5px;
+    height: 15px;
+    width: 60px;
+}
+#betButton {
+    font-size: 14px;
+    border: 1px solid var(--border);
+    width: 40px;
+    height: 20px;
+    align-items: center;
+    text-align: center;
+    border-radius: 5px;
+    align-content: center;
+}
+#betButton:hover {
+    opacity: 0.6;
+    transition: 0.1s;
+    cursor: pointer;
+}
+#spend {
+    display: inline-flex;
+    gap: 5px;
+    position: absolute;
+    left: 150px;
+    top: 445px;
+    margin-top: 5px;
+    scale: 1.2;
+}
