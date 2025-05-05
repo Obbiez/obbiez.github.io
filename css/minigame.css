@@ -29,7 +29,9 @@
     width: 350px;
     border-right: 2px solid var(--border);
     display: inline-block;
+    position: absolute;
     background-color: #181818;
+    top: 0;
 }
 .openAnimation {
     animation: openAnimation 0.5s forwards;
@@ -41,16 +43,31 @@
     animation: closeAnimation 0.5s forwards;
 }
 .menuCloseAnimation {
-    animation: menuCLoseAnimation 0.5s forwards;
+    animation: menuCloseAnimation 0.5s forwards;
 }
 .openPosition {
-    left: 350px !important;
+    transform: translateX(350px);
+}
+.menuOpenPosition {
+    transform: translateX(350px);
 }
 #minigameTitleDiv {
     border-bottom: 1px solid var(--border);
+    text-align: center;
 }
-
-
+#minigameTitleDiv h1 {
+    text-decoration: underline;
+    padding: 25px;
+    font-size: 38px;
+}
+#minigameSpacer {
+    height: 100%;
+    width: 350px;
+    margin-bottom: 100%;
+}
+.closed {
+    transform: translateX(-100%);
+}
 
 
 
@@ -84,9 +101,9 @@
 }
 @keyframes menuCloseAnimation {
     0% {
-        transform: translateX(0%);
+        transform: translateX(350px);
     }
     100% {
-        transform: translateX(-350px);
+        transform: translateX(0px);
     }
 }
