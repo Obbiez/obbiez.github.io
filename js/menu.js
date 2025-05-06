@@ -66,6 +66,7 @@ function updateCloseButtonListener() {
             menu.classList.remove('hide');
             statsContainer.classList.add('hide');
             currentScreen = 'Menu';
+            menu.classList.remove('menuOpenAnimation', 'menuCloseAnimation');
         } else if (currentScreen === 'Stats') {
             statsButton.classList.remove('hide');
             minigameButton.classList.remove('hide');
