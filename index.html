@@ -21,7 +21,8 @@
   <body>
     <script src="js/index.js" defer></script>
     <script src="js/menu.js" defer></script>
-    <script src="js/minigames.js" defer></script>
+    <script src="js/minigames/minigames-menu.js" defer></script>
+    <script src="js/minigames/heads-or-tails.js" defer></script>
     <main>
       <div id="title-container">
         <h1 id="title"><span id="titleJS">Clicker Game</span></h1>
@@ -153,7 +154,9 @@
               <label id="betAmountLabel">$ </label>
               <input type="text" for="betAmount" title="betAmount" id="betAmount">
               <div id="betButton">Bet</div>
-              <div><span id="insufficientFunds" class="hid">Insufficient Funds</span></div>
+            </div>
+            <div id="insufficientFundsDiv">
+              <p><span id="insufficientFunds" class="hide">Insufficient Funds</span></p>
             </div>
 
           </div>
