@@ -66,7 +66,12 @@ function updateCloseButtonListener() {
             menu.classList.remove('hide');
             statsContainer.classList.add('hide');
             currentScreen = 'Menu';
-            menu.classList.remove('menuOpenAnimation', 'menuCloseAnimation');
+            menu.classList.remove('menuCloseAnimation');
+            if (open === 'true') {
+                menu.classList.remove('menuOpenAnimation');
+                document.getElementById('menu').classList.add('openPosition');
+                document.getElementById('menu').classList.remove('hide');
+            }
         } else if (currentScreen === 'Stats') {
             statsButton.classList.remove('hide');
             minigameButton.classList.remove('hide');
