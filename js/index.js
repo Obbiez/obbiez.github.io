@@ -163,7 +163,18 @@ setInterval(() => {
         totalMoney = totalMoney + robotArm * 3.5;
         moneyDisplay.textContent = Number(money.toFixed(2));
     }
+    enoughMoney(money, price[1], strongFingerUpgrade, 'u1div');
+    enoughMoney(money, price[2], autoClickerUpgrade, 'u2div');
+    enoughMoney(money, price[3], robotArmUpgrade, 'u3div');
 }, 900)
+
+document.getElementById('betButton').addEventListener('click', () => {
+
+    enoughMoney(money, price[1], strongFingerUpgrade, 'u1div');
+    enoughMoney(money, price[2], autoClickerUpgrade, 'u2div');
+    enoughMoney(money, price[3], robotArmUpgrade, 'u3div');
+
+})
 
 
 statButton.addEventListener('click', () => {

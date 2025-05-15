@@ -49,7 +49,7 @@
     transform: translateX(350px);
 }
 .menuOpenPosition {
-    transform: translateX(350px);
+    left: 390px !important;
 }
 #minigameTitleDiv {
     border-bottom: 1px solid var(--border);
