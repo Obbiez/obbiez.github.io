@@ -3,6 +3,7 @@ const moneyDisplay = document.getElementById('moneyDisplay')
 const strongFingerUpgrade = document.getElementById('strongFinger');
 const autoClickerUpgrade = document.getElementById('autoClicker');
 const robotArmUpgrade = document.getElementById('robotArm');
+const robotFactoryUpgrade = document.getElementById('robotFactory');
 const statButton = document.getElementById('statButton');
 const clicksPerSecond = document.getElementById('clicksPerSecond');
 const menuScreen = document.getElementById('menuTitle');
@@ -14,6 +15,7 @@ let totalMoney = 0;
 let buyAmount = 1;
 let autoClicker = 0;
 let robotArm = 0;
+let robotFactory = 0;
 let totalMoneySpent = 0;
 let playTime = 0;
 
@@ -88,10 +90,12 @@ clickButton.addEventListener('click', () => {
     totalMoney += + click;
     moneyDisplay.textContent = Number(money.toFixed(2));
     discovery(25, 50, 'autoClickerText', autoClickerUpgrade, 'u2Title', 'bL2', 'price2', 'u2div', 'autoClickerText');
-    discovery(75, 300, 'robotArmText', robotArmUpgrade, 'u3Title', 'bL3', 'price3', 'u3div', 'robotArmText');
+    discovery(75, 200, 'robotArmText', robotArmUpgrade, 'u3Title', 'bL3', 'price3', 'u3div', 'robotArmText');
+    discovery(125, 400, 'robotFactoryText', robotFactoryUpgrade, 'u4Title', 'bL4', 'price4', 'u4div', 'robotFactoryText');
     enoughMoney(money, price[1], strongFingerUpgrade, 'u1div');
     enoughMoney(money, price[2], autoClickerUpgrade, 'u2div');
     enoughMoney(money, price[3], robotArmUpgrade, 'u3div');
+    enoughMoney(money, price[4], robotFactoryUpgrade, 'u4div');
 });
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -99,9 +103,11 @@ document.addEventListener('DOMContentLoaded', () => {
     displayPrice[1].textContent = price[1];
     displayPrice[2].textContent = price[2];
     displayPrice[3].textContent = price[3];
+    displayPrice[4].textContent = price[4];
     enoughMoney(money, price[1], strongFingerUpgrade, 'u1div');
     enoughMoney(money, price[2], autoClickerUpgrade, 'u2div');
     enoughMoney(money, price[3], robotArmUpgrade, 'u3div');
+    enoughMoney(money, price[4], robotFactoryUpgrade, 'u4div');
     playTimeStart = Date.now();
 });
 
@@ -117,6 +123,7 @@ strongFingerUpgrade.addEventListener('click', () => {
         enoughMoney(money, price[1], strongFingerUpgrade, 'u1div');
         enoughMoney(money, price[2], autoClickerUpgrade, 'u2div');
         enoughMoney(money, price[3], robotArmUpgrade, 'u3div');
+        enoughMoney(money, price[4], robotFactoryUpgrade, 'u4div');
     }
 });
 
@@ -133,6 +140,7 @@ autoClickerUpgrade.addEventListener('click', () => {
         enoughMoney(money, price[1], strongFingerUpgrade, 'u1div');
         enoughMoney(money, price[2], autoClickerUpgrade, 'u2div');
         enoughMoney(money, price[3], robotArmUpgrade, 'u3div');
+        enoughMoney(money, price[4], robotFactoryUpgrade, 'u4div');
     }
 })
 
@@ -149,6 +157,24 @@ robotArmUpgrade.addEventListener('click', () => {
         enoughMoney(money, price[1], strongFingerUpgrade, 'u1div');
         enoughMoney(money, price[2], autoClickerUpgrade, 'u2div');
         enoughMoney(money, price[3], robotArmUpgrade, 'u3div');
+        enoughMoney(money, price[4], robotFactoryUpgrade, 'u4div');
+    }
+})
+
+robotFactoryUpgrade.addEventListener('click', () => {
+    if (money >= price[4]) {
+        totalMoneySpent = Math.round(totalMoneySpent + (460 * Math.pow(1.15, totalUpgrade.upgrade4)));
+        totalUpgrade.upgrade4 = totalUpgrade.upgrade4 + 1;
+        money = money - price[4];
+        robotFactory = robotFactory + 1;
+        price[4] = Math.round(buyAmount * 460 * Math.pow(1.15, totalUpgrade.upgrade4))
+        displayPrice[4].textContent = price[4];
+        moneyDisplay.textContent = Number(money.toFixed(2));
+        clicksPerSecond.textContent = Number((robotArm * 3.5) + (autoClicker * 0.75) + (robotFactory * 10)).toFixed(2);
+        enoughMoney(money, price[1], strongFingerUpgrade, 'u1div');
+        enoughMoney(money, price[2], autoClickerUpgrade, 'u2div');
+        enoughMoney(money, price[3], robotArmUpgrade, 'u3div');
+        enoughMoney(money, price[4], robotFactoryUpgrade, 'u4div');
     }
 })
 
@@ -163,16 +189,23 @@ setInterval(() => {
         totalMoney = totalMoney + robotArm * 3.5;
         moneyDisplay.textContent = Number(money.toFixed(2));
     }
+    if (robotFactory > 0 && menuScreen.classList.contains('hide')) {
+        money = money + robotFactory * 10;
+        totalMoney = totalMoney + robotFactory * 10;
+        moneyDisplay.textContent = Number(money.toFixed(2));
+    }
     enoughMoney(money, price[1], strongFingerUpgrade, 'u1div');
     enoughMoney(money, price[2], autoClickerUpgrade, 'u2div');
     enoughMoney(money, price[3], robotArmUpgrade, 'u3div');
-}, 900)
+    enoughMoney(money, price[4], robotFactoryUpgrade, 'u4div');
+}, 925)
 
 document.getElementById('betButton').addEventListener('click', () => {
 
     enoughMoney(money, price[1], strongFingerUpgrade, 'u1div');
     enoughMoney(money, price[2], autoClickerUpgrade, 'u2div');
     enoughMoney(money, price[3], robotArmUpgrade, 'u3div');
+    enoughMoney(money, price[4], robotFactoryUpgrade, 'u4div');
 
 })
 

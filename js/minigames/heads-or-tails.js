@@ -10,6 +10,9 @@ let odds;
 let wins = 0;
 let losses = 0;
 
+let moneyLost = 0;
+let moneyGambled = 0;
+
 heads.classList.remove('minigameSelected');
 tails.classList.remove('minigameSelected');
 
@@ -44,14 +47,16 @@ bet.addEventListener('click', () => {
         };
 
         if (Math.random() > odds) {
-            money += parseFloat(betAmount.value) * 1.33;
+            money += parseFloat(betAmount.value * 1.33);
             moneyDisplay.textContent = Number(money.toFixed(2));
 
-            insufficientFunds.textContent = String(`Its ${playerSelected}! You win $${parseFloat(betAmount.value) * 1.33}`);
+            insufficientFunds.textContent = String(`Its ${playerSelected}! You win $${parseFloat(betAmount.value * 1.33)}`);
             insufficientFunds.classList.add('win');
             insufficientFunds.classList.remove('hide');
 
             wins += 1;
+
+            moneyLost += Number(betAmount.value * 1.33);
 
         } else {
             money -= parseFloat(betAmount.value);
@@ -61,7 +66,11 @@ bet.addEventListener('click', () => {
             insufficientFunds.classList.remove('hide');
 
             losses += 1;
+
+            moneyLost -= Number(betAmount.value);
         }
+
+        moneyGambled += Number(betAmount.value);
 
     } else if (money < parseFloat(betAmount.value)) {
 
@@ -73,4 +82,8 @@ bet.addEventListener('click', () => {
     }
 });
 
+document.getElementById('statButton').addEventListener('click', () => {
+    document.getElementById('gambled').textContent = Number(moneyGambled);
+    document.getElementById('madeGambling').textContent = Number(moneyLost.toFixed(2));
+});
 
