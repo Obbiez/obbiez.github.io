@@ -4,44 +4,42 @@
     --color: rgb(212, 212, 126);
     --sub-color: rgb(192, 192, 224);
 }
-#headTailsDiv {
-    width: 320px;
-    height: 350px;
+#spinnerDiv {
+    width: 310px;
+    height: 430px;
     border: 1px solid var(--border);
     border-radius: 15px;
     margin: 20px auto;
 }
-#headTailsImg {
-    width: 320px;
-    height: 230px;
+#spinnerImg {
+    width: 270px;
+    margin: 10px 0px;
     border-bottom: 1px solid var(--border);
-    opacity: 0.75;
-    border-radius: 15px 15px 0 0;
+    padding-left: 15px;
+    padding-right: 26px;
+    margin-bottom: 0;
 }
-.coin {
-    width: 70px;
-    height: 30px;
-    border-radius: 9px;
-    align-content: center;
-    text-align: center;
-    padding: 3px;
-    border: 1px solid var(--border);
-    margin: 12px;
+#optionsDiv2 {
+    top: 0;
+    margin: 0;
 }
-.coin:hover {
-    opacity: 0.6;
-    box-shadow: 0px 0px 8px 0px rgba(214, 214, 115, 0.225);
-    transition: 0.1s;
-    cursor: pointer;
+#red {
+    background-color: rgba(255, 0, 0, 0.477);
 }
-#betAmount {
+#blue {
+    background-color: rgba(0, 110, 255, 0.463);
+}
+#green {
+    background-color: rgba(0, 185, 9, 0.47);
+}
+#betAmount2 {
     background-color: rgba(206, 206, 206, 0.767);
     border: 2px solid rgba(182, 119, 38, 0.603);
     border-radius: 5px;
     height: 15px;
     width: 60px;
 }
-#betButton {
+#betButton2 {
     font-size: 14px;
     border: 1px solid var(--border);
     width: 40px;
@@ -51,21 +49,21 @@
     border-radius: 5px;
     align-content: center;
 }
-#betButton:hover {
+#betButton2:hover {
     opacity: 0.6;
     transition: 0.1s;
     cursor: pointer;
 }
-#spend {
+#spend2 {
     display: inline-flex;
     gap: 5px;
     position: absolute;
     left: 150px;
     top: 445px;
-    margin-top: 5px;
+    margin-top: 430px;
     scale: 1.2;
 }
-#insufficientFunds {
+#insufficientFunds2 {
     color: rgb(143, 45, 45);
     font-size: small;
     display: flex;
@@ -73,17 +71,3 @@
     position: absolute;
     top: 52%;
 }
-.minigameSelected {
-    scale: 1.07;
-    box-shadow: 0px 0px 10px 0px rgba(214, 214, 115, 0.35);
-}
-.minigameSelected:hover {
-    scale: 1.07 !important;
-    opacity: 1 !important;
-    box-shadow: 0px 0px 10px 0px rgba(214, 214, 115, 0.35) !important;
-    cursor: default !important;
-}
-.win {
-    color: rgba(40, 107, 40, 0.904) !important;
-}
-

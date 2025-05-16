@@ -38,25 +38,25 @@ bet.addEventListener('click', () => {
 
     if (money >= parseFloat(betAmount.value) && playerSelected) {
 
-        if (wins - losses <= 4) {
-            odds = 0.55
-        } else if (wins - losses >= 6) {
-            odds = 0.65
+        if (wins - losses <= 3) {
+            odds = 0.475
+        } else if (wins - losses >= 4) {
+            odds = 0.6
         } else if (wins - losses > 11) {
             odds = 0.75
         };
 
         if (Math.random() > odds) {
-            money += parseFloat(betAmount.value * 1.33);
+            money += parseFloat(betAmount.value * 0.75);
             moneyDisplay.textContent = Number(money.toFixed(2));
 
-            insufficientFunds.textContent = String(`Its ${playerSelected}! You win $${parseFloat(betAmount.value * 1.33)}`);
+            insufficientFunds.textContent = String(`Its ${playerSelected}! You win $${parseFloat(betAmount.value * 0.75)}`);
             insufficientFunds.classList.add('win');
             insufficientFunds.classList.remove('hide');
 
             wins += 1;
 
-            moneyLost += Number(betAmount.value * 1.33);
+            moneyLost += Number(betAmount.value * 0.75);
 
         } else {
             money -= parseFloat(betAmount.value);

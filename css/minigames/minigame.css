@@ -32,6 +32,8 @@
     position: absolute;
     background-color: #181818;
     top: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 .openAnimation {
     animation: openAnimation 0.5s forwards;
