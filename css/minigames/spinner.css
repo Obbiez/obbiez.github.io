@@ -6,7 +6,7 @@
 }
 #spinnerDiv {
     width: 310px;
-    height: 450px;
+    height: 470px;
     border: 1px solid var(--border);
     border-radius: 15px;
     margin: 20px auto;
@@ -23,7 +23,7 @@
     width: 60px;
     transform: rotate(180deg);
     left: 42%;
-    top: 83.5%;
+    top: 86.1%;
     position: absolute;
 }
 #optionsDiv2 {
