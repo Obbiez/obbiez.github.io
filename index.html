@@ -122,12 +122,12 @@
       
       <div id="statContainer" class="hide">
         <p class="hide" id="stat">
-          Total clicks: <span id="total-clicks"></span><br/>
-          Total money made: $<span id="total-money"></span><br/>
-          Total money spent: $<span id="total-spent"></span><br/>
-          Total play time: <span id="play-time"></span> <span id="play-time-measurement"></span><br/>
-          Total money gambled: $<span id="gambled"></span><br/>
-          Total money lost/made gambilng: $<span id="madeGambling"></span><br/>
+          Total clicks: <span id="total-clicks"></span><br/><br/>
+          Total money made: $<span id="total-money"></span><br/><br/>
+          Total money spent: $<span id="total-spent"></span><br/><br/>
+          Total play time: <span id="play-time"></span> <span id="play-time-measurement"></span><br/><br/>
+          Total money gambled: $<span id="gambled"></span><br/><br/>
+          Total money lost/made gambilng: $<span id="madeGambling"></span><br/><br/>
         </p>
       </div>
 
@@ -181,7 +181,8 @@
 
 
         <div id="spinnerDiv">
-          <img src="assets/Spinner Wheel.png" alt="Spin Wheel for minigame" id="spinnerImg">
+          <img src="assets/Spinner.png" alt="Spin Wheel for minigame" id="spinnerImg">
+          <img src="assets/Spinner Triangle.png" alt="Spin Wheel for minigame" id="spinnerImg2">
 
           <div id="optionsDiv2">
 
@@ -190,6 +191,13 @@
             <div id="blue" class="coin">Blue</div>
 
             <div id="green" class="coin">Green</div>
+
+            <label id="numberSelect"> </label>
+            <input type="text" for="numberSelect" title="numberSelect" id="number">
+            <div id="numberSelectButton">Select</div>
+            <div id="insufficientFundsDiv2">
+              <p><span id="insufficientFunds2" class="hide">Invalid Number</span></p>
+            </div>
 
             <div id="spend2">
               <label id="betAmountLabel2">$ </label>
