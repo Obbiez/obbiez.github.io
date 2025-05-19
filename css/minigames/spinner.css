@@ -23,7 +23,7 @@
     width: 60px;
     transform: rotate(180deg);
     left: 42%;
-    top: 86.1%;
+    top: 798px;
     position: absolute;
 }
 #optionsDiv2 {
@@ -82,7 +82,7 @@
     gap: 5px;
     position: absolute;
     left: 150px;
-    top: 50.4%;
+    top: 490px;
     margin-top: 430px;
     scale: 1.2;
 }
@@ -92,7 +92,7 @@
     display: flex;
     margin-left: 150px;
     position: absolute;
-    top: 97.5%;
+    top: 900px;
 }
 #number {
     background-color: rgba(206, 206, 206, 0.767);

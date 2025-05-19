@@ -153,7 +153,7 @@ robotArmUpgrade.addEventListener('click', () => {
         price[3] = Math.round(buyAmount * 191 * Math.pow(1.2, totalUpgrade.upgrade3))
         displayPrice[3].textContent = price[3];
         moneyDisplay.textContent = Number(money.toFixed(2));
-        clicksPerSecond.textContent = Number((robotArm * 3.5) + (autoClicker * 0.75)).toFixed(2);
+        clicksPerSecond.textContent = Number((robotArm * 3.5) + (autoClicker * 0.75) + (robotFactory * 10)).toFixed(2);
         enoughMoney(money, price[1], strongFingerUpgrade, 'u1div');
         enoughMoney(money, price[2], autoClickerUpgrade, 'u2div');
         enoughMoney(money, price[3], robotArmUpgrade, 'u3div');

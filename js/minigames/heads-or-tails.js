@@ -38,9 +38,9 @@ bet.addEventListener('click', () => {
 
     if (money >= parseFloat(betAmount.value) && playerSelected) {
 
-        if (wins - losses <= 3) {
+        if (wins - losses <= 5) {
             odds = 0.475
-        } else if (wins - losses >= 4) {
+        } else if (wins - losses >= 6) {
             odds = 0.6
         } else if (wins - losses > 11) {
             odds = 0.75
