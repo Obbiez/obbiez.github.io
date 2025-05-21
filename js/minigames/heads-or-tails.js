@@ -13,6 +13,8 @@ let losses = 0;
 let moneyLost = 0;
 let moneyGambled = 0;
 
+let secret = 0;
+
 heads.classList.remove('minigameSelected');
 tails.classList.remove('minigameSelected');
 
@@ -38,25 +40,27 @@ bet.addEventListener('click', () => {
 
     if (money >= parseFloat(betAmount.value) && playerSelected) {
 
-        if (wins - losses <= 5) {
+        if (wins - losses <= 5 && secret < 3) {
             odds = 0.475
-        } else if (wins - losses >= 6) {
+        } else if (wins - losses >= 6 && secret < 3) {
             odds = 0.6
-        } else if (wins - losses > 11) {
+        } else if (wins - losses > 11 && secret < 3) {
             odds = 0.75
-        };
+        } else if (secret > 3) {
+            odds = 0.625
+        }
 
         if (Math.random() > odds) {
-            money += parseFloat(betAmount.value * 0.75);
+            money += parseFloat(betAmount.value * 0.945);
             moneyDisplay.textContent = Number(money.toFixed(2));
 
-            insufficientFunds.textContent = String(`Its ${playerSelected}! You win $${parseFloat(betAmount.value * 0.75)}`);
+            insufficientFunds.textContent = String(`Its ${playerSelected}! You win $${parseFloat(betAmount.value * 0.945)}`);
             insufficientFunds.classList.add('win');
             insufficientFunds.classList.remove('hide');
 
             wins += 1;
 
-            moneyLost += Number(betAmount.value * 0.75);
+            moneyLost += Number(betAmount.value * 0.945);
 
         } else {
             money -= parseFloat(betAmount.value);
@@ -87,3 +91,8 @@ document.getElementById('statButton').addEventListener('click', () => {
     document.getElementById('madeGambling').textContent = Number(moneyLost.toFixed(2));
 });
 
+
+
+document.getElementById('minigameButton').addEventListener('click', () => {
+    secret =+ 1;
+});

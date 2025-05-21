@@ -101,3 +101,25 @@
     height: 15px;
     width: 60px;
 }
+.blue1 {
+    animation: blue1 3s linear;
+    
+}
+@keyframes blue1 {
+    0% {
+        transform: rotate(0deg);
+        border: 0px;
+    }
+    60% {
+        transform: rotate(360deg);
+        border: 0px;
+    }
+    80% {
+        transform: rotate(380deg);
+        border: 0px;
+    }
+    100% {
+        transform: rotate(380deg);
+        border: 0px;
+    }
+}
