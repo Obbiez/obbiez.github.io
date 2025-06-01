@@ -15,37 +15,29 @@ blue.addEventListener('click', () => {
     red.classList.remove('minigameSelected');
     green.classList.remove('minigameSelected');
     selected = 'blue';
+    odds2 = 0.4;
+    oddsMoney = 1.25;
 })
 red.addEventListener('click', () => {
     red.classList.add('minigameSelected');
     blue.classList.remove('minigameSelected');
     green.classList.remove('minigameSelected');
     selected = 'red';
+    odds2 = 0.4;
+    oddsMoney = 1.25;
 })
 green.addEventListener('click', () => {
     green.classList.add('minigameSelected');
     red.classList.remove('minigameSelected');
     blue.classList.remove('minigameSelected');
     selected = 'green';
+    odds2 = 0.2;
+    oddsMoney = 1.8;
 })
 
 
 bet2.addEventListener('click', () => {
-    if (selected === 'blue') {
-        odds2 = 0.4;
-        oddsMoney = 1.25;
-    } else if (selected === 'red') {
-        odds2 = 0.4;
-        oddsMoney = 1.25;
-    } else if (selected === 'green') {
-        odds2 = 0.2;
-        oddsMoney = 1.8;
-    } else {
-        odds2 = 'none';
-    }
-
-
-    if (betAmount2.value < money && selected !== 'none') {
+    if (parseFloat(betAmount2.value) < money && selected !== 'none') {
         if (Math.random() < odds2) {
             money += parseFloat(betAmount2.value * 0.75);
             moneyDisplay.textContent = Number(money.toFixed(2));
@@ -90,11 +82,6 @@ bet2.addEventListener('click', () => {
                 
             }
 
-        } else if (selected === 'none') {
-            insufficientFunds2.textContent = 'Please select a colour';
-            insufficientFunds2.classList.remove('win');
-            insufficientFunds2.classList.remove('hide');
-
         } else {
             money -= parseFloat(betAmount2.value);
             moneyDisplay.textContent = Number(money.toFixed(2));
@@ -108,8 +95,15 @@ bet2.addEventListener('click', () => {
             moneyGambled += Number(betAmount2.value);
         }
 
-
-
+    } else if (selected === 'none') {
+        insufficientFunds2.textContent = 'Please select a colour';
+        insufficientFunds2.classList.remove('win');
+        insufficientFunds2.classList.remove('hide');
+    } else if (parseFloat(betAmount2.value) > money) {
+        insufficientFunds2.textContent = 'Insufficient Funds';
+        insufficientFunds2.classList.remove('win');
         insufficientFunds2.classList.add('hide');
     }
+
+    insufficientFunds2.classList.add('hide');
 })
