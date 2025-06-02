@@ -15,8 +15,11 @@
     <link href="css/minigames/minigame.css" rel="stylesheet" />
     <link href="css/minigames/heads-or-tails.css" rel="stylesheet" />
     <link href="css/minigames/spinner.css" rel="stylesheet" />
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3415204069172722"
-     crossorigin="anonymous"></script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3415204069172722"
+      crossorigin="anonymous"
+    ></script>
   </head>
 
   <body>
@@ -31,20 +34,29 @@
       </div>
 
       <h3 id="click-container">$<span id="moneyDisplay">0</span></h3>
-      <h3 id="click-container">Clicks Per Second: <span id="space"> a</span><span id="clicksPerSecond">0</span></h3>
+      <h3 id="click-container">
+        Clicks Per Second: <span id="space"> a</span
+        ><span id="clicksPerSecond">0</span>
+      </h3>
 
       <div>
-        <button id="button" type="button" name="click button"> <span class="hide">a</span> </button>
+        <button id="button" type="button" name="click button">
+          <span class="hide">a</span>
+        </button>
       </div>
 
       <div id="upgrades">
-
         <div class="container">
           <h1 id="upgrade-title">Upgrades</h1>
         </div>
 
         <div class="upgradeContainer upgradeHover" id="u1div">
-          <button class="upgrade-container" id="strongFinger" name="strong finger upgrade" type="button">
+          <button
+            class="upgrade-container"
+            id="strongFinger"
+            name="strong finger upgrade"
+            type="button"
+          >
             <span id="u1Title">Strong Fingers</span>
             <br />
             <span class="bottomLine" id="bL1">
@@ -55,7 +67,12 @@
         </div>
 
         <div class="upgradeContainer upgradeHover notDiscoveredDiv" id="u2div">
-          <button class="upgrade-container notDiscovered" id="autoClicker" name="auto clicker upgrade" type="button">
+          <button
+            class="upgrade-container notDiscovered"
+            id="autoClicker"
+            name="auto clicker upgrade"
+            type="button"
+          >
             <span class="notDiscoveredText" id="autoClickerText">???</span>
             <span id="u2Title" class="hide">Auto Clicker</span>
             <br />
@@ -67,7 +84,12 @@
         </div>
 
         <div class="upgradeContainer upgradeHover notDiscoveredDiv" id="u3div">
-          <button class="upgrade-container notDiscovered" id="robotArm" name="robot arm upgrade" type="button">
+          <button
+            class="upgrade-container notDiscovered"
+            id="robotArm"
+            name="robot arm upgrade"
+            type="button"
+          >
             <span class="notDiscoveredText" id="robotArmText">???</span>
             <span id="u3Title" class="hide">Robot Arm</span>
             <br />
@@ -79,7 +101,12 @@
         </div>
 
         <div class="upgradeContainer upgradeHover notDiscoveredDiv" id="u4div">
-          <button class="upgrade-container notDiscovered" id="robotFactory" name="robot factory upgrade" type="button">
+          <button
+            class="upgrade-container notDiscovered"
+            id="robotFactory"
+            name="robot factory upgrade"
+            type="button"
+          >
             <span class="notDiscoveredText" id="robotFactoryText">???</span>
             <span id="u4Title" class="hide">Robot Factory</span>
             <br />
@@ -89,10 +116,25 @@
             </span>
           </button>
         </div>
-
       </div>
+      <!--
+      <svg 
+      id="leaderboard"
+      xmlns="http://www.w3.org/2000/svg"
+       height="24px" viewBox="0 -960 960 960" 
+       width="24px" 
+       fill="#B7B7B7">
+       <path d="M160-200h160v-320H160v320Zm240 0h160v-560H400v560Zm240 0h160v-240H640v240ZM80-120v-480h240v-240h320v320h240v400H80Z"/></svg>
 
 
+
+       <svg 
+       xmlns="http://www.w3.org/2000/svg" 
+       height="24px" viewBox="0 -960 960 960"
+        width="24px" 
+        fill="#B7B7B7">
+        <path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Zm80-80h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T560-640q0-33-23.5-56.5T480-720q-33 0-56.5 23.5T400-640q0 33 23.5 56.5T480-560Zm0-80Zm0 400Z"/></svg>
+       -->
 
       <svg
         id="menu"
@@ -116,19 +158,26 @@
       <div id="settingContainer" class="hide">
         <form id="setting">
           <label id="websiteTitle">Website Title: </label>
-          <input type="text" for="websiteTitle" title="websiteTitle" id="websiteTitleValue">
+          <input
+            type="text"
+            for="websiteTitle"
+            title="websiteTitle"
+            id="websiteTitleValue"
+          />
           <div id="titleButton">Apply</div>
         </form>
       </div>
-      
+
       <div id="statContainer" class="hide">
         <p class="hide" id="stat">
-          Total clicks: <span id="total-clicks"></span><br/><br/>
-          Total money made: $<span id="total-money"></span><br/><br/>
-          Total money spent: $<span id="total-spent"></span><br/><br/>
-          Total play time: <span id="play-time"></span> <span id="play-time-measurement"></span><br/><br/>
-          Total money gambled: $<span id="gambled"></span><br/><br/>
-          Total money lost/made gambilng: $<span id="madeGambling"></span><br/><br/>
+          Total clicks: <span id="total-clicks"></span><br /><br />
+          Total money made: $<span id="total-money"></span><br /><br />
+          Total money spent: $<span id="total-spent"></span><br /><br />
+          Total play time: <span id="play-time"></span>
+          <span id="play-time-measurement"></span><br /><br />
+          Total money gambled: $<span id="gambled"></span><br /><br />
+          Total money lost/made gambilng: $<span id="madeGambling"></span
+          ><br /><br />
         </p>
       </div>
 
@@ -150,43 +199,57 @@
       <button class="setting container-left upgradeHover hide" id="closeButton">
         Close
       </button>
-      
+
       <div id="minigameMenu" class="minigameMenuButton">
         <div id="minigameTitleDiv">
-          <h1 id="minigameTitle">
-            Minigames
-          </h1>
+          <h1 id="minigameTitle">Minigames</h1>
         </div>
 
         <div id="headTailsDiv">
-          <img src="assets/Heads_or_Tails.jpg" alt="heads or tails banner for minigame" id="headTailsImg">
+          <img
+            src="assets/Heads_or_Tails.jpg"
+            alt="heads or tails banner for minigame"
+            id="headTailsImg"
+          />
 
           <div id="optionsDiv">
-
             <div id="heads" class="coin">Heads</div>
 
             <div id="tails" class="coin">Tails</div>
 
             <div id="spend">
               <label id="betAmountLabel">$ </label>
-              <input type="text" for="betAmount" title="betAmount" id="betAmount">
+              <input
+                type="text"
+                for="betAmount"
+                title="betAmount"
+                id="betAmount"
+              />
               <div id="betButton">Bet</div>
             </div>
             <div id="insufficientFundsDiv">
-              <p><span id="insufficientFunds" class="hide">Insufficient Funds</span></p>
+              <p>
+                <span id="insufficientFunds" class="hide"
+                  >Insufficient Funds</span
+                >
+              </p>
             </div>
-
           </div>
-
         </div>
 
-
         <div id="spinnerDiv">
-          <img src="assets/Spinner.png" alt="Spin Wheel for minigame" id="spinnerImg">
-          <img src="assets/Spinner Triangle.png" alt="Spin Wheel for minigame" id="spinnerImg2">
+          <img
+            src="assets/Spinner.png"
+            alt="Spin Wheel for minigame"
+            id="spinnerImg"
+          />
+          <img
+            src="assets/Spinner Triangle.png"
+            alt="Spin Wheel for minigame"
+            id="spinnerImg2"
+          />
 
           <div id="optionsDiv2">
-
             <div id="red" class="coin">Red</div>
 
             <div id="blue" class="coin">Blue</div>
@@ -204,35 +267,44 @@
             <div id="numberSelectButton">Select</div>
             -->
             <div id="insufficientFundsDiv2">
-              <p><span id="insufficientFunds2" class="hide">Invalid Number</span></p>
+              <p>
+                <span id="insufficientFunds2" class="hide">Invalid Number</span>
+              </p>
             </div>
 
             <div id="spend2">
               <label id="betAmountLabel2">$ </label>
-              <input type="text" for="betAmount" title="betAmount" id="betAmount2">
+              <input
+                type="text"
+                for="betAmount"
+                title="betAmount"
+                id="betAmount2"
+              />
               <div id="betButton2">Bet</div>
             </div>
             <div id="insufficientFundsDiv2">
-              <p><span id="insufficientFunds2" class="hide">Insufficient Funds</span></p>
+              <p>
+                <span id="insufficientFunds2" class="hide"
+                  >Insufficient Funds</span
+                >
+              </p>
             </div>
-
           </div>
-
-
         </div>
 
-        
-
-        <div id="minigameSpacer">
-        </div>
+        <div id="minigameSpacer"></div>
       </div>
 
       <div id="minigameMenuButton" class="minigameMenuButton">
-        <svg xmlns="http://www.w3.org/2000/svg"
-         height="24px" viewBox="0 -960 960 960"
-          width="24px" fill="#B7B7B7"
-          id="minigameMenuButtonSVG">
-          <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z"/>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 -960 960 960"
+          width="24px"
+          fill="#B7B7B7"
+          id="minigameMenuButtonSVG"
+        >
+          <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z" />
         </svg>
       </div>
 
