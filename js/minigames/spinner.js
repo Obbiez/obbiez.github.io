@@ -6,7 +6,7 @@ const insufficientFunds2 = document.getElementById('insufficientFunds2');
 const bet2 = document.getElementById('betButton2');
 const spinner = document.getElementById('spinnerImg');
 
-let selected;
+let selected = 'none';
 let odds2;
 let oddsMoney;
 
@@ -37,14 +37,15 @@ green.addEventListener('click', () => {
 
 
 bet2.addEventListener('click', () => {
-    if (parseFloat(betAmount2.value) < money && selected !== 'none') {
+    if (parseFloat(betAmount2.value) <= money && selected !== 'none' && spinner.classList.contains('spin') === false) {
         if (Math.random() < odds2) {
             money += parseFloat(betAmount2.value * 0.75);
             moneyDisplay.textContent = Number(money.toFixed(2));
 
+            insufficientFunds2.classList.remove('hide');
             insufficientFunds2.textContent = String(`You win $${parseFloat(betAmount2.value * oddsMoney)}`);
             insufficientFunds2.classList.add('win');
-            insufficientFunds2.classList.remove('hide');
+
 
             wins += 1;
 
@@ -52,6 +53,13 @@ bet2.addEventListener('click', () => {
 
             if (selected === 'blue') {
                 const randomNumber = Math.random();
+
+                spinner.classList.add('spin');
+
+                spinner.addEventListener('animationend', () => {
+                    spinner.classList.remove('spin');
+                    insufficientFunds2.classList.add('hide');
+                }, { once: true });
 
                 if (randomNumber < 0.2) {
                     spinner.classList.add('blue1');
@@ -81,14 +89,13 @@ bet2.addEventListener('click', () => {
                 }
                 
             }
-
         } else {
             money -= parseFloat(betAmount2.value);
             moneyDisplay.textContent = Number(money.toFixed(2));
 
+            insufficientFunds2.classList.remove('hide');
             insufficientFunds2.textContent = String(`You lost $${parseFloat(betAmount2.value)}`);
             insufficientFunds2.classList.remove('win');
-            insufficientFunds2.classList.remove('hide');
 
             losses += 1;
 
@@ -102,8 +109,11 @@ bet2.addEventListener('click', () => {
     } else if (parseFloat(betAmount2.value) > money) {
         insufficientFunds2.textContent = 'Insufficient Funds';
         insufficientFunds2.classList.remove('win');
-        insufficientFunds2.classList.add('hide');
+        insufficientFunds2.classList.remove('hide');
+    } else if (spinner.classList.contains('spin')) {
+        insufficientFunds2.textContent = 'Please wait for the spinner to finish';
+        insufficientFunds2.classList.remove('win');
+        insufficientFunds2.classList.remove('hide');
     }
 
-    insufficientFunds2.classList.add('hide');
 })
